@@ -1,7 +1,13 @@
+package data;
+
+import classes.User;
+
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import main.Main;
 
 public interface DataIntroduction {
     static int introduceInteger(String message) {
@@ -47,5 +53,33 @@ public interface DataIntroduction {
             }
         } while (age < 18);
         return age;
+    }
+    static User introduceUsernameForLogin(ArrayList<User> users) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introdueix el nom d'usuari");
+        String username = sc.nextLine();
+        User user = validateUsername(users, username);
+        if (user == null) {
+            System.out.println("Error: No és un usuari correcte");
+            Main.run();
+        }
+        return user;
+    }
+    static User validateUsername(ArrayList<User> users, String username) {
+        for (User u : users) {
+            if (username.equals(u.getUsername())) {
+                return u;
+            }
+        }
+        return null;
+    }
+    static void introducePasswordForLogin(User user) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introdueix la contrasenya");
+        String password = sc.nextLine();
+        if (!password.equals(user.getPassword())) {
+            System.out.println("Error: No és una contrasenya correcte");
+            Main.run();
+        }
     }
 }

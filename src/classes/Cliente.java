@@ -1,3 +1,5 @@
+package classes;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -67,7 +69,7 @@ public class Cliente {
         Cliente cliente = new Cliente( dni, nombre, edad, numeroCliente);
         listaClientes.add(cliente);
 
-        System.out.println("Cliente añadido correctamente.");
+        System.out.println("classes.Cliente añadido correctamente.");
     }
 
     @Override
