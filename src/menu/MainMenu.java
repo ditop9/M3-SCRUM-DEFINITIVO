@@ -4,6 +4,7 @@ import data.input_output.Input;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+
 import classes.User;
 import data.DataIntroduction;
 import main.Main;
@@ -20,6 +21,7 @@ public class MainMenu {
                 | * 0. SORTIR                             |
                 |_________________________________________|""");
     }
+
     public static void chooseOption(int option) {
         switch (option) {
             case 1:
@@ -40,17 +42,11 @@ public class MainMenu {
                 break;
         }
     }
+
     static void login() {
-        ArrayList<User> users = new ArrayList<>();
-        try {
-            users = Input.readUsersFile();
-        } catch (FileNotFoundException e) {
-            System.out.println(e + "\nError: No s'ha trobat l'arxiu d'usuaris");
-            Main.run();
-        }
+        ArrayList<User> users = Input.readUsersFile();
         User user = DataIntroduction.introduceUsernameForLogin(users);
         DataIntroduction.introducePasswordForLogin(user);
         Main.masterUser = user;
-        Main.run();
     }
 }

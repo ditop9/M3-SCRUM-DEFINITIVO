@@ -57,7 +57,8 @@ public class Cliente {
     public void setListaClientes(List<Cliente> listaClientes) {
         this.listaClientes = listaClientes;
     }
-    public void anadirCliente(){
+
+    public void anadirCliente() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce el DNI");
         String dni = sc.next();
@@ -65,11 +66,11 @@ public class Cliente {
         String nombre = sc.next();
         System.out.println("Introduce la edad");
         int edad = sc.nextInt();
-        int numeroCliente= listaClientes.getLast().getNumeroDeCliente() + 1;
-        Cliente cliente = new Cliente( dni, nombre, edad, numeroCliente);
+        int numeroCliente = listaClientes.getLast().getNumeroDeCliente() + 1;
+        Cliente cliente = new Cliente(dni, nombre, edad, numeroCliente);
         listaClientes.add(cliente);
 
-        System.out.println("classes.Cliente añadido correctamente.");
+        System.out.println("Cliente añadido correctamente.");
     }
 
     @Override

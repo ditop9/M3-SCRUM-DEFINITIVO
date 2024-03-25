@@ -1,11 +1,10 @@
 package classes;
 
+import data.DataIntroduction;
 import data.input_output.Input;
 import main.Main;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class User {
     private int identifier;
@@ -32,23 +31,41 @@ public class User {
         this.username = username;
         this.password = password;
     }
+
     public static int getNewIdentifier() {
-        ArrayList<User> users = new ArrayList<>();
-        try {
-            users = Input.readUsersFile();
-        } catch (FileNotFoundException e) {
-            System.out.println(e + "\nError: No s'ha trobat l'arxiu d'usuaris");
-            Main.run();
-        }
+        ArrayList<User> users = Input.readUsersFile();
         return users.getLast().getIdentifier() + 1;
     }
+
     public static User createNewUser() {
-        Scanner sc = new Scanner(System.in);
         int identifier = User.getNewIdentifier();
-        System.out.println("Introdueix el nom d'usuari");
-        String username = sc.nextLine();
-        System.out.println("Introdueix la contrasenya");
-        String password = sc.nextLine();
+        String username = DataIntroduction.introduceString("Introdueix el nom d'usuari");
+        String password = DataIntroduction.introduceString("Introdueix la contrasenya");
         return new User(identifier, username, password);
+    }
+
+    public static User chooseExistingUser() {
+        ArrayList<User> users = Input.readUsersFile();
+        Input.showUsers();
+        System.out.println("0 => Sortir");
+        int id = DataIntroduction.introduceInteger("Introdueix l'ID de l'usuari");
+        if (id == 0) {
+            Main.run();
+        }
+        for (User u : users) {
+            if (u.getIdentifier() == id) {
+                return u;
+            }
+        }
+        System.out.println("Error: No s'ha trobat l'usuari");
+        Main.run();
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "User " +
+                "ID " + identifier +
+                " Username " + username;
     }
 }

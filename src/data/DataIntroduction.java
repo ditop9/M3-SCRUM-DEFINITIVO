@@ -7,9 +7,20 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import main.Main;
 
 public interface DataIntroduction {
+    static String introduceString(String message) {
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println(message);
+            String str = sc.nextLine();
+            if (str.isBlank()) {
+                System.out.println("Error: No es un caràcter vàlid");
+            } else return str;
+        } while (true);
+    }
     static int introduceInteger(String message) {
         Scanner sc = new Scanner(System.in);
         do {
@@ -22,6 +33,7 @@ public interface DataIntroduction {
             }
         } while (true);
     }
+
     static String introduceDni() {
         Scanner sc = new Scanner(System.in);
         String dni;
@@ -34,12 +46,14 @@ public interface DataIntroduction {
         } while (validateDni(dni));
         return dni;
     }
+
     static boolean validateDni(String dni) {
         String patron = "\\d{8}[A-HJ-NP-TV-Z]";
         Pattern pattern = Pattern.compile(patron);
         Matcher matcher = pattern.matcher(dni);
         return matcher.matches();
     }
+
     static int introduceAge() {
         int age;
         do {
@@ -54,6 +68,7 @@ public interface DataIntroduction {
         } while (age < 18);
         return age;
     }
+
     static User introduceUsernameForLogin(ArrayList<User> users) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introdueix el nom d'usuari");
@@ -65,6 +80,7 @@ public interface DataIntroduction {
         }
         return user;
     }
+
     static User validateUsername(ArrayList<User> users, String username) {
         for (User u : users) {
             if (username.equals(u.getUsername())) {
@@ -73,6 +89,7 @@ public interface DataIntroduction {
         }
         return null;
     }
+
     static void introducePasswordForLogin(User user) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introdueix la contrasenya");
