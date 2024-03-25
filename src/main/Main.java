@@ -1,6 +1,6 @@
 package main;
 
-import classes.User;
+import classes.*;
 import data.DataIntroduction;
 import menu.*;
 

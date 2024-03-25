@@ -4,6 +4,7 @@ import classes.User;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,7 +25,9 @@ public interface DataIntroduction {
     static int introduceInteger(String message) {
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println(message);
+            if (!message.isBlank()) {
+                System.out.println(message);
+            }
             try {
                 return sc.nextInt();
             } catch (InputMismatchException e) {
@@ -98,5 +101,13 @@ public interface DataIntroduction {
             System.out.println("Error: No és una contrasenya correcte");
             Main.run();
         }
+    }
+    static boolean confirmAction() {
+        Random random = new Random();
+        int randomInt = 1000 + random.nextInt(9000);
+        System.out.println("Introdueix el següent número per confirmar l'acció");
+        System.out.println(randomInt);
+        int entry = introduceInteger("");
+        return entry == randomInt;
     }
 }

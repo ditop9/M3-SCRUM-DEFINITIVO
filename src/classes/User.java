@@ -2,8 +2,11 @@ package classes;
 
 import data.DataIntroduction;
 import data.input_output.Input;
+import data.input_output.Output;
 import main.Main;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class User {
@@ -32,19 +35,19 @@ public class User {
         this.password = password;
     }
 
-    public static int getNewIdentifier() {
+    static int getNewIdentifier() {
         ArrayList<User> users = Input.readUsersFile();
         return users.getLast().getIdentifier() + 1;
     }
 
-    public static User createNewUser() {
-        int identifier = User.getNewIdentifier();
+    static User createNewUser() {
+        int identifier = getNewIdentifier();
         String username = DataIntroduction.introduceString("Introdueix el nom d'usuari");
         String password = DataIntroduction.introduceString("Introdueix la contrasenya");
         return new User(identifier, username, password);
     }
 
-    public static User chooseExistingUser() {
+    static User chooseExistingUser() {
         ArrayList<User> users = Input.readUsersFile();
         Input.showUsers();
         System.out.println("0 => Sortir");
@@ -60,6 +63,47 @@ public class User {
         System.out.println("Error: No s'ha trobat l'usuari");
         Main.run();
         return null;
+    }
+    public static void addNewMasterUser() {
+        User newMasterUser = createNewUser();
+        try {
+            Output.writeUsersFile(newMasterUser);
+        } catch (IOException e) {
+            System.out.println(e + "Error: No s'ha trobat l'arxiu d'usuaris");
+            Main.run();
+        }
+    }
+    public static void deleteMasterUser() {
+        ArrayList<User> users = Input.readUsersFile();
+        if (users.isEmpty()) {
+            System.out.println("Error: No es troben usuaris Màster");
+            Main.run();
+        }
+        User user = User.chooseExistingUser();
+        System.out.println(user);
+        System.out.println("Introdueix la contrasenya de l'usuari màster a eliminar");
+        if (user == null) {
+            System.out.println("S'ha produït un error");
+            Main.run();
+        } else {
+            DataIntroduction.introducePasswordForLogin(user);
+            if (DataIntroduction.confirmAction()) {
+                users.removeIf(u -> u.getIdentifier() == user.getIdentifier());
+                try {
+                    Output.reWriteUsersFile(users);
+                    System.out.println("S'ha eliminat l'usuari");
+                } catch (FileNotFoundException e) {
+                    System.out.println("Error: No s'ha trobat l'arxiu dels usuaris");
+                    Main.run();
+                }
+            } else {
+                System.out.println("Error: No s'ha proporcionat el número correcte");
+                Main.run();
+            }
+        }
+    }
+    public static void logout() {
+        Main.masterUser = null;
     }
 
     @Override

@@ -2,7 +2,6 @@ package menu;
 
 import data.input_output.Input;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import classes.User;
@@ -15,9 +14,6 @@ public class MainMenu {
                 ====== BENVINGUT A L'ENTORN D'USUARI ======
                 ___________________________________________
                 | * 1. INICIAR SESSIÓ                     |
-                | * 2. AFEGIR NOVA COMPRA                 |
-                | * 3. FILTRAR COMPRES                    |
-                | * 4. INICIAR SESSIÓ                     |
                 | * 0. SORTIR                             |
                 |_________________________________________|""");
     }
@@ -25,12 +21,6 @@ public class MainMenu {
     public static void chooseOption(int option) {
         switch (option) {
             case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
                 login();
                 break;
             case 0:
