@@ -1,7 +1,7 @@
 package main;
 
 import classes.*;
-import data.DataIntroduction;
+import data.DataInput;
 import menu.*;
 
 public class Main {
@@ -16,11 +16,11 @@ public class Main {
         do {
             if (masterUser != null) {
                 LoggedMenu.ui();
-                option = DataIntroduction.introduceInteger("Escull una opció");
+                option = DataInput.getValidInteger("Escull una opció");
                 LoggedMenu.chooseOption(option);
             } else {
                 MainMenu.ui();
-                option = DataIntroduction.introduceInteger("Escull una opció");
+                option = DataInput.getValidInteger("Escull una opció");
                 MainMenu.chooseOption(option);
             }
         } while (option != 0);

@@ -1,6 +1,7 @@
 package data.input_output;
 
 import classes.Customer;
+import classes.Supermarket;
 import classes.User;
 
 import java.io.*;

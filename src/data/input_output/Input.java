@@ -77,4 +77,19 @@ public class Input {
         }
         return customers;
     }
+    public static ArrayList<Supermarket> readSupermarketsFile() {
+        File file = new File("database/SupermarketsData.csv");
+        ArrayList<Supermarket> supermarkets = new ArrayList<>();
+        ArrayList<String[]> fileData = new ArrayList<>();
+        try {
+            fileData = readFileData(file);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: No s'ha trobat l'arxiu de supermercats");
+            Main.run();
+        }
+        for (String[] line : fileData){
+            supermarkets.add(new Supermarket(Integer.parseInt(line[0]), line[1]));
+        }
+        return supermarkets;
+    }
 }

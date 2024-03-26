@@ -1,20 +1,23 @@
 package classes;
 
+import data.DataInput;
+
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Order {
-    private String identifier;
-    private Customer customer;
-    private Supermarket supermarket;
-    private ArrayList<Product> productsOrder;
+    private final String identifier;
+    private final String date;
+    private final Customer customer;
+    private final Supermarket supermarket;
+    private final ArrayList<Product> productsOrder;
 
     public String getIdentifier() {
         return identifier;
     }
 
-    public Order(Customer customer, Supermarket supermarket, ArrayList<Product> productsOrder) {
+    public Order(Customer customer, String date, Supermarket supermarket, ArrayList<Product> productsOrder) {
         identifier = getNewIdentifier(customer, supermarket);
+        this.date = date;
         this.customer = customer;
         this.supermarket = supermarket;
         this.productsOrder = productsOrder;
@@ -29,7 +32,10 @@ public class Order {
         sb.append(supermarket.getName().toUpperCase(), 0, 3);
         return sb.toString();
     }
-    public static void createNewOrder(Customer customer) {
+    public static void createNewOrder() {
+        String date = DataInput.getValidDate();
+        Customer customer = Customer.chooseExistingCustomer();
+        Supermarket supermarket = Supermarket.chooseExistingSupermarket();
 
     }
 }

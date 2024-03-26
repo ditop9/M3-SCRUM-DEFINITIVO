@@ -1,6 +1,6 @@
 package classes;
 
-import data.DataIntroduction;
+import data.DataInput;
 import data.input_output.Input;
 import data.input_output.Output;
 import main.Main;
@@ -51,10 +51,8 @@ public class Customer {
         ArrayList<Customer> customers = Input.readCustomersFile();
         Input.showCustomers();
         System.out.println("0 => Sortir");
-        int id = DataIntroduction.introduceInteger("Introdueix l'ID de l'usuari");
-        if (id == 0) {
-            Main.run();
-        }
+        int id = DataInput.getValidInteger("Introdueix l'ID de l'usuari");
+        DataInput.handleExit(String.valueOf(id));
         for (Customer c : customers) {
             if (c.getIdentifier() == id) {
                 return c;
@@ -66,9 +64,9 @@ public class Customer {
     }
     public static Customer createNewCustomer() {
         int identifier = getNewIdentifier();
-        String dni = DataIntroduction.introduceDni();
-        String name = DataIntroduction.introduceString("Introdueix el nom del client");
-        int age = DataIntroduction.introduceAge();
+        String dni = DataInput.getValidDni();
+        String name = DataInput.getValidString("Introdueix el nom del client");
+        int age = DataInput.getValidAge();
         return new Customer(identifier, dni, name, age);
     }
     public static void addNewCustomer() {
@@ -92,7 +90,7 @@ public class Customer {
             System.out.println("S'ha produït un error");
             Main.run();
         } else {
-            if (DataIntroduction.confirmAction()) {
+            if (DataInput.confirmAction()) {
                 customers.removeIf(c -> c.getIdentifier() == customer.getIdentifier());
                 try {
                     Output.reWriteCustomersFile(customers);

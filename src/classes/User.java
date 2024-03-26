@@ -1,6 +1,6 @@
 package classes;
 
-import data.DataIntroduction;
+import data.DataInput;
 import data.input_output.Input;
 import data.input_output.Output;
 import main.Main;
@@ -42,8 +42,8 @@ public class User {
 
     static User createNewUser() {
         int identifier = getNewIdentifier();
-        String username = DataIntroduction.introduceString("Introdueix el nom d'usuari");
-        String password = DataIntroduction.introduceString("Introdueix la contrasenya");
+        String username = DataInput.getValidString("Introdueix el nom d'usuari");
+        String password = DataInput.getValidString("Introdueix la contrasenya");
         return new User(identifier, username, password);
     }
 
@@ -51,7 +51,7 @@ public class User {
         ArrayList<User> users = Input.readUsersFile();
         Input.showUsers();
         System.out.println("0 => Sortir");
-        int id = DataIntroduction.introduceInteger("Introdueix l'ID de l'usuari");
+        int id = DataInput.getValidInteger("Introdueix l'ID de l'usuari");
         if (id == 0) {
             Main.run();
         }
@@ -86,8 +86,8 @@ public class User {
             System.out.println("S'ha produït un error");
             Main.run();
         } else {
-            DataIntroduction.introducePasswordForLogin(user);
-            if (DataIntroduction.confirmAction()) {
+            DataInput.introducePasswordForLogin(user);
+            if (DataInput.confirmAction()) {
                 users.removeIf(u -> u.getIdentifier() == user.getIdentifier());
                 try {
                     Output.reWriteUsersFile(users);

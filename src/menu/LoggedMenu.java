@@ -12,14 +12,12 @@ public class LoggedMenu {
                 ___________________________________________
                 | * 1. AFEGIR NOU CLIENT                  |
                 | * 2. ELIMINAR CLIENT                    |
-                | * 3. AFEGIR NOU SUPERMERCAT             |
-                | * 4. ELIMINAR SUPERMERCAT               |
-                | * 5. AFEGIR NOVA COMPRA                 |
-                | * 6. ELIMINAR COMPRA                    |
-                | * 7. FILTRAR COMPRA                     |
-                | * 8. AFEGIR NOU USUARI MÀSTER           |
-                | * 9. ELIMINAR USUARI MÀSTER             |
-                | * 10. TANCAR SESSIÓ                     |
+                | * 3. AFEGIR NOVA COMPRA                 |
+                | * 4. ELIMINAR COMPRA                    |
+                | * 5. FILTRAR COMPRA                     |
+                | * 6. AFEGIR NOU USUARI MÀSTER           |
+                | * 7. ELIMINAR USUARI MÀSTER             |
+                | * 8. TANCAR SESSIÓ                      |
                 | * 0. SORTIR                             |
                 |_________________________________________|""");
     }
@@ -34,13 +32,13 @@ public class LoggedMenu {
                 break;
             case 3:
                 break;
-            case 8:
+            case 6:
                 User.addNewMasterUser();
                 break;
-            case 9:
+            case 7:
                 User.deleteMasterUser();
                 break;
-            case 10:
+            case 8:
                 User.logout();
                 break;
             case 0:
