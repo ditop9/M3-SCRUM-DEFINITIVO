@@ -46,8 +46,20 @@ public class Input {
             System.out.println((i + 1) + ". " + customers.get(i));
         }
     }
+    public static void showSupermarkets() {
+        ArrayList<Supermarket> supermarkets = readSupermarketsFile();
+        for (int i = 0; i < supermarkets.size(); i++) {
+            System.out.println((i + 1) + ". " + supermarkets.get(i));
+        }
+    }
+    public static void showProducts() {
+        ArrayList<Product> products = readProductsFile();
+        for (Product p : products) {
+            System.out.println("- " + p);
+        }
+    }
 
-    public static ArrayList<Product> readProductsFile() throws FileNotFoundException {
+    public static ArrayList<Product> readProductsFile() {
         File file = new File("database/ProductsData.csv");
         ArrayList<Product> products = new ArrayList<>();
         ArrayList<String[]> fileData = new ArrayList<>();

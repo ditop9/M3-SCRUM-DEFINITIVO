@@ -2,10 +2,8 @@ package classes;
 
 import data.DataInput;
 import data.input_output.Input;
-import data.input_output.Output;
 import main.Main;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Supermarket {
@@ -24,13 +22,9 @@ public class Supermarket {
         this.identifier = identifier;
         this.name = name;
     }
-    static int getNewIdentifier() {
-        ArrayList<Supermarket> supermarkets = Input.readSupermarketsFile();
-        return supermarkets.getLast().getIdentifier() + 1;
-    }
     static Supermarket chooseExistingSupermarket() {
         ArrayList<Supermarket> supermarkets = Input.readSupermarketsFile();
-        Input.showCustomers();
+        Input.showSupermarkets();
         System.out.println("0 => Sortir");
         int id = DataInput.getValidInteger("Introdueix l'ID de l'usuari");
         DataInput.handleExit(String.valueOf(id));
@@ -42,6 +36,13 @@ public class Supermarket {
         System.out.println("Error: No s'ha trobat el supermercat");
         Main.run();
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Supermarket" +
+                " ID " + identifier +
+                " Nom " + name;
     }
 }
 

@@ -38,6 +38,20 @@ public interface DataInput {
             }
         } while (true);
     }
+    static double getValidDouble(String message) {
+        Scanner sc = new Scanner(System.in);
+        do {
+            if (!message.isBlank()) {
+                System.out.println(message);
+            }
+            try {
+                return sc.nextDouble();
+            } catch (InputMismatchException e) {
+                System.out.println("Error: No es tracta d'un caràcter vàlid");
+                sc.next();
+            }
+        } while (true);
+    }
 
     static String getValidDni() {
         Scanner sc = new Scanner(System.in);

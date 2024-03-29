@@ -1,6 +1,7 @@
 package menu;
 
 import classes.Customer;
+import classes.Order;
 import classes.User;
 import main.Main;
 
@@ -31,6 +32,7 @@ public class LoggedMenu {
                 Customer.deleteCustomer();
                 break;
             case 3:
+                System.out.println(Order.createNewOrder());
                 break;
             case 6:
                 User.addNewMasterUser();

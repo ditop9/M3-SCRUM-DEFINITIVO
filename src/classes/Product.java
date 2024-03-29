@@ -6,6 +6,18 @@ public class Product {
     private double price;
     private boolean weight;
 
+    public int getIdentifier() {
+        return identifier;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isWeight() {
+        return weight;
+    }
+
     public Product(int identifier, String name, double price, boolean weight) {
         this.identifier = identifier;
         this.name = name;
@@ -15,7 +27,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "\nProducte " +
+        return "Producte " +
                 "ID " + identifier +
                 " Nom " + name +
                 " Preu " + price;
