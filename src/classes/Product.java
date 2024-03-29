@@ -1,10 +1,10 @@
 package classes;
 
 public class Product {
-    private int identifier;
-    private String name;
-    private double price;
-    private boolean weight;
+    private final int identifier;
+    private final String name;
+    private final double price;
+    private final boolean weight;
 
     public int getIdentifier() {
         return identifier;
@@ -27,8 +27,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Producte " +
-                "ID " + identifier +
+        return "ID " + identifier +
                 " Nom " + name +
                 " Preu " + price;
     }

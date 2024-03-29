@@ -26,7 +26,7 @@ public class Supermarket {
         ArrayList<Supermarket> supermarkets = Input.readSupermarketsFile();
         Input.showSupermarkets();
         System.out.println("0 => Sortir");
-        int id = DataInput.getValidInteger("Introdueix l'ID de l'usuari");
+        int id = DataInput.getValidInteger("Introdueix l'ID del supermercat");
         DataInput.handleExit(String.valueOf(id));
         for (Supermarket s : supermarkets) {
             if (s.getIdentifier() == id) {

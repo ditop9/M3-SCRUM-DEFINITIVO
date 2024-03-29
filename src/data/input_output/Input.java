@@ -104,4 +104,19 @@ public class Input {
         }
         return supermarkets;
     }
+    public static ArrayList<Order> readOrdersFile() {
+        File file = new File("database/OrdersFile.csv");
+        ArrayList<Order> orders = new ArrayList<>();
+        ArrayList<String[]> fileData = new ArrayList<>();
+        try {
+            fileData = readFileData(file);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: No s'ha trobat l'arxiu de compres");
+            Main.run();
+        }
+        for (String[] line : fileData){
+            orders.add(new Order(line[1], line[2], line[3], line[4]));
+        }
+        return orders;
+    }
 }

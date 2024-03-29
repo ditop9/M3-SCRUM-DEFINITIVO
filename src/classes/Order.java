@@ -5,7 +5,6 @@ import data.input_output.Input;
 import main.Main;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Order {
     private final String identifier;
@@ -27,13 +26,9 @@ public class Order {
         this.customer.getOrderList().add(this);
     }
     static String getNewIdentifier(Customer customer, Supermarket supermarket) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(customer.getIdentifier());
-        if (customer.getOrderList().isEmpty()) {
-            sb.append("0");
-        } else sb.append(customer.getOrderList().size());
-        sb.append(supermarket.getName().toUpperCase(), 0, 3);
-        return sb.toString();
+        return String.valueOf(customer.getIdentifier()) +
+                customer.getOrderList().size() +
+                supermarket.getName().toUpperCase().substring(0, 3);
     }
     public static Order createNewOrder() {
         String date = DataInput.getValidDate();
@@ -65,17 +60,18 @@ public class Order {
                 Product product = chooseProduct(identifier);
                 if (product != null) {
                     System.out.println("0 => Cancel·lar producte");
+                    double quantity;
                     if (product.isWeight()) {
-                        double quantity = DataInput.getValidDouble("Introdueix el pes comprat de " + product.getName());
-                        if (quantity != 0) {
-                            chosenProducts.add(new OrderProduct(product, quantity));
-                        } else System.out.println("No s'ha afegit el producte");
+                        quantity = DataInput.getValidDouble("Introdueix el pes comprat de " + product.getName());
                     } else {
-                        double quantity = DataInput.getValidInteger("Introdueix la quantitat comprada de " + product.getName());
-                        if (quantity != 0) {
-                            chosenProducts.add(new OrderProduct(product, quantity));
-                        } else System.out.println("No s'ha afegit el producte");
+                        quantity = DataInput.getValidInteger("Introdueix la quantitat comprada de " + product.getName());
                     }
+                    if (quantity != 0) {
+                        if (product.isWeight()) {
+                            System.out.println("S'ha afegit " + quantity + "Kg de " + product.getName());
+                        } else System.out.println("S'ha afegit " + quantity + " unitats de " + product.getName());
+                        chosenProducts.add(new OrderProduct(product, quantity));
+                    } else System.out.println("No s'ha afegit el producte");
                 } else System.out.println("Error: Producte no trobat");
             }
         } while (identifier != 0);
@@ -89,5 +85,27 @@ public class Order {
             }
         }
         return null;
+    }
+    void showProducts(StringBuilder sb) {
+        for (OrderProduct p : productsOrder) {
+            if (p.getProduct().isWeight()) {
+                sb.append(p.getProduct()).append(" Quantitat: ").append(p.getQuantity()).append("Kg\n");
+            } else {
+                sb.append(p.getProduct()).append(" Quantitat: ").append(p.getQuantity()).append(" unitats\n");
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Order ")
+                .append("\nID ").append(identifier)
+                .append("\nData ").append(date)
+                .append("\nClient ").append(customer.getName())
+                .append("\nSupermercat ").append(supermarket.getName())
+                .append("\nProductes:\n");
+        showProducts(sb);
+        return sb.toString();
     }
 }

@@ -32,7 +32,9 @@ public class LoggedMenu {
                 Customer.deleteCustomer();
                 break;
             case 3:
-                System.out.println(Order.createNewOrder());
+                Order order = Order.createNewOrder();
+                System.out.println(order.getIdentifier());
+                System.out.println(order);
                 break;
             case 6:
                 User.addNewMasterUser();
