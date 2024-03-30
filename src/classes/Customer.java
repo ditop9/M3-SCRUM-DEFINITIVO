@@ -62,6 +62,15 @@ public class Customer {
         Main.run();
         return null;
     }
+    public static Customer selectCustomerById(int id) {
+        ArrayList<Customer> customers = Input.readCustomersFile();
+        for (Customer c : customers) {
+            if (id == c.getIdentifier()) {
+                return c;
+            }
+        }
+        return null;
+    }
     public static Customer createNewCustomer() {
         int identifier = getNewIdentifier();
         String dni = DataInput.getValidDni();

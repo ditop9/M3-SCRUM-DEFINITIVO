@@ -2,6 +2,7 @@ package main;
 
 import classes.*;
 import data.DataInput;
+import data.input_output.Input;
 import menu.*;
 
 public class Main {
@@ -13,6 +14,7 @@ public class Main {
 
     public static void run() {
         int option;
+        System.out.println(Input.readOrdersFile());
         do {
             if (masterUser != null) {
                 LoggedMenu.ui();

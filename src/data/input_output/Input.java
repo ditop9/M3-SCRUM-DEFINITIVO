@@ -105,7 +105,7 @@ public class Input {
         return supermarkets;
     }
     public static ArrayList<Order> readOrdersFile() {
-        File file = new File("database/OrdersFile.csv");
+        File file = new File("database/Orders.csv");
         ArrayList<Order> orders = new ArrayList<>();
         ArrayList<String[]> fileData = new ArrayList<>();
         try {
@@ -115,7 +115,11 @@ public class Input {
             Main.run();
         }
         for (String[] line : fileData){
-            orders.add(new Order(line[1], line[2], line[3], line[4]));
+            String date = line[1];
+            Customer customer = Customer.selectCustomerById(Integer.parseInt(line[2]));
+            Supermarket supermarket = Supermarket.selectSupermarketById(Integer.parseInt(line[3]));
+            ArrayList<OrderProduct> orderProducts = Product.refactorProductIdInProducts(line[4]);
+            orders.add(new Order(date, customer, supermarket, orderProducts));
         }
         return orders;
     }

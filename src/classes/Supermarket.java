@@ -37,6 +37,15 @@ public class Supermarket {
         Main.run();
         return null;
     }
+    public static Supermarket selectSupermarketById(int id) {
+        ArrayList<Supermarket> supermarkets = Input.readSupermarketsFile();
+        for (Supermarket s : supermarkets) {
+            if (id == s.getIdentifier()) {
+                return s;
+            }
+        }
+        return null;
+    }
 
     @Override
     public String toString() {
