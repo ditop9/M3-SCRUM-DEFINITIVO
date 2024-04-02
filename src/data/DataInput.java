@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import main.Main;
+import app.Main;
 
 public interface DataInput {
     static String getValidString(String message) {
@@ -24,6 +24,7 @@ public interface DataInput {
             } else return str;
         } while (true);
     }
+
     static int getValidInteger(String message) {
         Scanner sc = new Scanner(System.in);
         do {
@@ -38,6 +39,7 @@ public interface DataInput {
             }
         } while (true);
     }
+
     static double getValidDouble(String message) {
         Scanner sc = new Scanner(System.in);
         do {
@@ -122,6 +124,7 @@ public interface DataInput {
             Main.run();
         }
     }
+
     static boolean confirmAction() {
         Random random = new Random();
         int randomInt = 1000 + random.nextInt(9000);
@@ -130,6 +133,7 @@ public interface DataInput {
         int entry = getValidInteger("");
         return entry == randomInt;
     }
+
     static String getValidDate() {
         Scanner sc = new Scanner(System.in);
         do {
@@ -142,12 +146,14 @@ public interface DataInput {
             }
         } while (true);
     }
+
     static boolean validateDate(String date) {
         String regex = "^(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[0-2])/\\d{4}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(date);
         return matcher.matches();
     }
+
     static void handleExit(String val) {
         if (val.equals("0")) {
             System.out.println("Tornant al menú...");

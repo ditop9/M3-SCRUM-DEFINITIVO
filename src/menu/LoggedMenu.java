@@ -3,11 +3,11 @@ package menu;
 import classes.Customer;
 import classes.Order;
 import classes.User;
-import main.Main;
+import app.Main;
 
 public class LoggedMenu {
-    public static void ui() {
-        System.out.println(Main.masterUser.getUsername());
+    public static void displayMenu() {
+        System.out.println(Main.admin.getUsername());
         System.out.println("""
                 ====== BENVINGUT A L'ENTORN D'USUARI ======
                 ___________________________________________
@@ -23,7 +23,7 @@ public class LoggedMenu {
                 |_________________________________________|""");
     }
 
-    public static void chooseOption(int option) {
+    public static void handleOption(int option) {
         switch (option) {
             case 1:
                 Customer.addNewCustomer();

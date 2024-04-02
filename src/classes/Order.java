@@ -2,9 +2,10 @@ package classes;
 
 import data.DataInput;
 import data.input_output.Input;
-import main.Main;
+import app.Main;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Order {
     private final String identifier;
@@ -17,26 +18,28 @@ public class Order {
         return identifier;
     }
 
-    public Order(String date, Customer customer, Supermarket supermarket, ArrayList<OrderProduct> productsOrder) {
-        identifier = getNewIdentifier(customer, supermarket);
+    public Order(String identifier, String date, Customer customer, Supermarket supermarket, ArrayList<OrderProduct> productsOrder) {
+        this.identifier = identifier;
         this.date = date;
         this.customer = customer;
         this.supermarket = supermarket;
         this.productsOrder = productsOrder;
         this.customer.getOrderList().add(this);
     }
-    static String getNewIdentifier(Customer customer, Supermarket supermarket) {
-        return String.valueOf(customer.getIdentifier()) +
-                customer.getOrderList().size() +
-                supermarket.getName().toUpperCase().substring(0, 3);
+
+    static String getNewIdentifier(Supermarket supermarket) {
+        Random random = new Random();
+        int randomNum = 10000000 + random.nextInt(90000000);
+        return randomNum + supermarket.getName().toUpperCase().substring(0, 3);
     }
+
     public static Order createNewOrder() {
         String date = DataInput.getValidDate();
         Customer customer = Customer.chooseExistingCustomer();
         if (customer == null) {
             System.out.println("Error: No s'ha trobat el client");
             Main.run();
-        } else System.out.println("Client escollit: " +  customer.getName());
+        } else System.out.println("Client escollit: " + customer.getName());
         Supermarket supermarket = Supermarket.chooseExistingSupermarket();
         if (supermarket == null) {
             System.out.println("Error: No s'ha trobat el supermercat");
@@ -47,8 +50,10 @@ public class Order {
             System.out.println("Error: No s'han trobat productes comprats");
             Main.run();
         }
-        return new Order(date, customer, supermarket, products);
+        String identifier = getNewIdentifier(supermarket);
+        return new Order(identifier, date, customer, supermarket, products);
     }
+
     public static ArrayList<OrderProduct> chooseProductsList() {
         ArrayList<OrderProduct> chosenProducts = new ArrayList<>();
         int identifier;
@@ -77,6 +82,7 @@ public class Order {
         } while (identifier != 0);
         return chosenProducts;
     }
+
     static Product chooseProduct(int identifier) {
         ArrayList<Product> productsList = Input.readProductsFile();
         for (Product p : productsList) {
@@ -86,12 +92,13 @@ public class Order {
         }
         return null;
     }
+
     void showProducts(StringBuilder sb) {
         for (OrderProduct p : productsOrder) {
             if (p.getProduct().isWeight()) {
-                sb.append(p.getProduct()).append(" Quantitat: ").append(p.getQuantity()).append("Kg\n");
+                sb.append(p.getProduct().toStringTicket()).append(" Quantitat: ").append(p.getQuantity()).append("Kg\n");
             } else {
-                sb.append(p.getProduct()).append(" Quantitat: ").append(p.getQuantity()).append(" unitats\n");
+                sb.append(p.getProduct().toStringTicket()).append(" Quantitat: ").append(p.getQuantity()).append("\n");
             }
         }
     }
@@ -99,12 +106,14 @@ public class Order {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Order ")
-                .append("\nID ").append(identifier)
-                .append("\nData ").append(date)
-                .append("\nClient ").append(customer.getName())
-                .append("\nSupermercat ").append(supermarket.getName())
-                .append("\nProductes:\n");
+        sb.append("\n================================")
+                .append("\nOrder: ")
+                .append(identifier)
+                .append("\nData: ").append(date)
+                .append("\nClient: ").append(customer.getName())
+                .append("\nSupermercat: ").append(supermarket.getName())
+                .append("\nProductes:\n")
+                .append("\n================================");
         showProducts(sb);
         return sb.toString();
     }

@@ -3,7 +3,7 @@ package classes;
 import data.DataInput;
 import data.input_output.Input;
 import data.input_output.Output;
-import main.Main;
+import app.Main;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,9 +24,6 @@ public class User {
 
     public String getPassword() {
         return password;
-    }
-
-    public User() {
     }
 
     public User(int identifier, String username, String password) {
@@ -64,6 +61,7 @@ public class User {
         Main.run();
         return null;
     }
+
     public static void addNewMasterUser() {
         User newMasterUser = createNewUser();
         try {
@@ -73,6 +71,7 @@ public class User {
             Main.run();
         }
     }
+
     public static void deleteMasterUser() {
         ArrayList<User> users = Input.readUsersFile();
         if (users.isEmpty()) {
@@ -102,8 +101,9 @@ public class User {
             }
         }
     }
+
     public static void logout() {
-        Main.masterUser = null;
+        Main.admin = null;
     }
 
     @Override

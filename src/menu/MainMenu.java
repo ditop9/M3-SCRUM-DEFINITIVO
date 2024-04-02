@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 import classes.User;
 import data.DataInput;
-import main.Main;
+import app.Main;
 
 public class MainMenu {
-    public static void ui() {
+    public static void displayMenu() {
         System.out.println("""
                 ====== BENVINGUT A L'ENTORN D'USUARI ======
                 ___________________________________________
@@ -18,7 +18,7 @@ public class MainMenu {
                 |_________________________________________|""");
     }
 
-    public static void chooseOption(int option) {
+    public static void handleOption(int option) {
         switch (option) {
             case 1:
                 login();
@@ -37,6 +37,6 @@ public class MainMenu {
         ArrayList<User> users = Input.readUsersFile();
         User user = DataInput.introduceUsernameForLogin(users);
         DataInput.introducePasswordForLogin(user);
-        Main.masterUser = user;
+        Main.admin = user;
     }
 }

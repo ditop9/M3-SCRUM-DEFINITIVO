@@ -2,7 +2,7 @@ package classes;
 
 import data.DataInput;
 import data.input_output.Input;
-import main.Main;
+import app.Main;
 
 import java.util.ArrayList;
 
@@ -22,6 +22,7 @@ public class Supermarket {
         this.identifier = identifier;
         this.name = name;
     }
+
     static Supermarket chooseExistingSupermarket() {
         ArrayList<Supermarket> supermarkets = Input.readSupermarketsFile();
         Input.showSupermarkets();
@@ -37,6 +38,7 @@ public class Supermarket {
         Main.run();
         return null;
     }
+
     public static Supermarket selectSupermarketById(int id) {
         ArrayList<Supermarket> supermarkets = Input.readSupermarketsFile();
         for (Supermarket s : supermarkets) {

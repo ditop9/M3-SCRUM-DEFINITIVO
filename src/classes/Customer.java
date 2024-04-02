@@ -3,7 +3,7 @@ package classes;
 import data.DataInput;
 import data.input_output.Input;
 import data.input_output.Output;
-import main.Main;
+import app.Main;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -43,10 +43,12 @@ public class Customer {
         this.age = edad;
         orderList = new ArrayList<>();
     }
+
     static int getNewIdentifier() {
         ArrayList<Customer> customers = Input.readCustomersFile();
         return customers.getLast().getIdentifier() + 1;
     }
+
     static Customer chooseExistingCustomer() {
         ArrayList<Customer> customers = Input.readCustomersFile();
         Input.showCustomers();
@@ -62,6 +64,7 @@ public class Customer {
         Main.run();
         return null;
     }
+
     public static Customer selectCustomerById(int id) {
         ArrayList<Customer> customers = Input.readCustomersFile();
         for (Customer c : customers) {
@@ -71,6 +74,7 @@ public class Customer {
         }
         return null;
     }
+
     public static Customer createNewCustomer() {
         int identifier = getNewIdentifier();
         String dni = DataInput.getValidDni();
@@ -78,6 +82,7 @@ public class Customer {
         int age = DataInput.getValidAge();
         return new Customer(identifier, dni, name, age);
     }
+
     public static void addNewCustomer() {
         Customer customer = createNewCustomer();
         try {
@@ -87,6 +92,7 @@ public class Customer {
             Main.run();
         }
     }
+
     public static void deleteCustomer() {
         ArrayList<Customer> customers = Input.readCustomersFile();
         if (customers.isEmpty()) {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import classes.*;
-import main.Main;
+import app.Main;
 
 public class Input {
     static ArrayList<String[]> readFileData(File file) throws FileNotFoundException {
@@ -19,6 +19,7 @@ public class Input {
         }
         return fileData;
     }
+
     public static ArrayList<User> readUsersFile() {
         File file = new File("database/UsersData.csv");
         ArrayList<User> users = new ArrayList<>();
@@ -34,24 +35,28 @@ public class Input {
         }
         return users;
     }
+
     public static void showUsers() {
         ArrayList<User> users = readUsersFile();
         for (int i = 0; i < users.size(); i++) {
             System.out.println((i + 1) + ". " + users.get(i));
         }
     }
+
     public static void showCustomers() {
         ArrayList<Customer> customers = readCustomersFile();
         for (int i = 0; i < customers.size(); i++) {
             System.out.println((i + 1) + ". " + customers.get(i));
         }
     }
+
     public static void showSupermarkets() {
         ArrayList<Supermarket> supermarkets = readSupermarketsFile();
         for (int i = 0; i < supermarkets.size(); i++) {
             System.out.println((i + 1) + ". " + supermarkets.get(i));
         }
     }
+
     public static void showProducts() {
         ArrayList<Product> products = readProductsFile();
         for (Product p : products) {
@@ -64,7 +69,7 @@ public class Input {
         ArrayList<Product> products = new ArrayList<>();
         ArrayList<String[]> fileData = new ArrayList<>();
         try {
-             fileData = readFileData(file);
+            fileData = readFileData(file);
         } catch (FileNotFoundException e) {
             System.out.println("Error: No s'ha trobat l'arxiu de productes");
             Main.run();
@@ -74,6 +79,7 @@ public class Input {
         }
         return products;
     }
+
     public static ArrayList<Customer> readCustomersFile() {
         File file = new File("database/CustomersData.csv");
         ArrayList<Customer> customers = new ArrayList<>();
@@ -84,11 +90,12 @@ public class Input {
             System.out.println("Error: No s'ha trobat l'arxiu de clients");
             Main.run();
         }
-        for (String[] line : fileData){
-            customers.add(new Customer(Integer.parseInt(line[0]),line[1], line[2], Integer.parseInt(line[3])));
+        for (String[] line : fileData) {
+            customers.add(new Customer(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3])));
         }
         return customers;
     }
+
     public static ArrayList<Supermarket> readSupermarketsFile() {
         File file = new File("database/SupermarketsData.csv");
         ArrayList<Supermarket> supermarkets = new ArrayList<>();
@@ -99,11 +106,12 @@ public class Input {
             System.out.println("Error: No s'ha trobat l'arxiu de supermercats");
             Main.run();
         }
-        for (String[] line : fileData){
+        for (String[] line : fileData) {
             supermarkets.add(new Supermarket(Integer.parseInt(line[0]), line[1]));
         }
         return supermarkets;
     }
+
     public static ArrayList<Order> readOrdersFile() {
         File file = new File("database/Orders.csv");
         ArrayList<Order> orders = new ArrayList<>();
@@ -114,12 +122,13 @@ public class Input {
             System.out.println("Error: No s'ha trobat l'arxiu de compres");
             Main.run();
         }
-        for (String[] line : fileData){
+        for (String[] line : fileData) {
+            String identifier = line[0];
             String date = line[1];
             Customer customer = Customer.selectCustomerById(Integer.parseInt(line[2]));
             Supermarket supermarket = Supermarket.selectSupermarketById(Integer.parseInt(line[3]));
             ArrayList<OrderProduct> orderProducts = Product.refactorProductIdInProducts(line[4]);
-            orders.add(new Order(date, customer, supermarket, orderProducts));
+            orders.add(new Order(identifier, date, customer, supermarket, orderProducts));
         }
         return orders;
     }

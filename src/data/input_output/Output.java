@@ -1,7 +1,6 @@
 package data.input_output;
 
 import classes.Customer;
-import classes.Supermarket;
 import classes.User;
 
 import java.io.*;
@@ -21,6 +20,7 @@ public class Output {
         }
         pw.close();
     }
+
     public static void writeUsersFile(User user) throws IOException {
         File file = new File("database/UsersData.csv");
         FileWriter fw = new FileWriter(file, true);
@@ -30,6 +30,7 @@ public class Output {
         pw.close();
         fw.close();
     }
+
     public static void reWriteCustomersFile(ArrayList<Customer> customers) throws FileNotFoundException {
         File file = new File("database/CustomersData.csv");
         PrintWriter pw = new PrintWriter(file);
@@ -43,6 +44,7 @@ public class Output {
         }
         pw.close();
     }
+
     public static void writeCustomersFile(Customer customer) throws IOException {
         File file = new File("database/UsersData.csv");
         FileWriter fw = new FileWriter(file, true);
