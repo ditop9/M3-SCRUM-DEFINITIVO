@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Output {
     public static void reWriteUsersFile(ArrayList<User> users) throws FileNotFoundException {
-        File file = new File("database/UsersData.csv");
+        File file = new File("database/AdminData.csv");
         PrintWriter pw = new PrintWriter(file);
         pw.println("ID,Nom,Contrasenya");
         for (int i = 0; i < users.size(); i++) {
@@ -22,7 +22,7 @@ public class Output {
     }
 
     public static void writeUsersFile(User user) throws IOException {
-        File file = new File("database/UsersData.csv");
+        File file = new File("database/AdminData.csv");
         FileWriter fw = new FileWriter(file, true);
         PrintWriter pw = new PrintWriter(fw);
         pw.println();
@@ -46,7 +46,7 @@ public class Output {
     }
 
     public static void writeCustomersFile(Customer customer) throws IOException {
-        File file = new File("database/UsersData.csv");
+        File file = new File("database/AdminData.csv");
         FileWriter fw = new FileWriter(file, true);
         PrintWriter pw = new PrintWriter(fw);
         pw.println();

@@ -71,7 +71,7 @@ public class Order {
                     } else {
                         quantity = DataInput.getValidInteger("Introdueix la quantitat comprada de " + product.getName());
                     }
-                    if (quantity != 0) {
+                    if (quantity > 0) {
                         if (product.isWeight()) {
                             System.out.println("S'ha afegit " + quantity + "Kg de " + product.getName());
                         } else System.out.println("S'ha afegit " + quantity + " unitats de " + product.getName());
@@ -112,8 +112,7 @@ public class Order {
                 .append("\nData: ").append(date)
                 .append("\nClient: ").append(customer.getName())
                 .append("\nSupermercat: ").append(supermarket.getName())
-                .append("\nProductes:\n")
-                .append("\n================================");
+                .append("\nProductes:\n");
         showProducts(sb);
         return sb.toString();
     }

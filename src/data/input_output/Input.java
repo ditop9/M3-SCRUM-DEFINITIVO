@@ -21,7 +21,7 @@ public class Input {
     }
 
     public static ArrayList<User> readUsersFile() {
-        File file = new File("database/UsersData.csv");
+        File file = new File("database/AdminData.csv");
         ArrayList<User> users = new ArrayList<>();
         ArrayList<String[]> fileData = new ArrayList<>();
         try {
