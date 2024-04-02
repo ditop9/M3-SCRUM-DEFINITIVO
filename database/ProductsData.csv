@@ -1,0 +1,21 @@
+ID,Nom,Preu,Producte de pes
+1,Arròs,1,FALSE
+2,Oli,6,FALSE
+3,Sucre,1.25,FALSE
+4,Café,3,FALSE
+5,Cereals,3.25,FALSE
+6,Xocolata,2.5,FALSE
+7,Galetes,2.25,FALSE
+8,Farina,1.5,FALSE
+9,Ous,0.4,FALSE
+10,Llet,1.5,FALSE
+11,Mantega,2,FALSE
+12,Poma,1.2,TRUE
+13,Melmelada,2.99,FALSE
+14,Mel,3.49,FALSE
+15,Pa,0.5,FALSE
+16,Pasta,1.2,FALSE
+17,Patates,1.25,TRUE
+18,Formatge,3.99,FALSE
+19,Tomàquets,1,TRUE
+20,Iogurt,2.99,FALSE
