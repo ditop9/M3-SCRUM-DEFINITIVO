@@ -4,7 +4,7 @@ import data.input_output.Input;
 
 import java.util.ArrayList;
 
-import classes.User;
+import classes.Admin;
 import data.DataInput;
 import app.Main;
 
@@ -34,8 +34,8 @@ public class MainMenu {
     }
 
     static void login() {
-        ArrayList<User> users = Input.readUsersFile();
-        User user = DataInput.introduceUsernameForLogin(users);
+        ArrayList<Admin> users = Input.readUsersFile();
+        Admin user = DataInput.introduceUsernameForLogin(users);
         DataInput.introducePasswordForLogin(user);
         Main.admin = user;
     }

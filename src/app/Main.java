@@ -6,7 +6,7 @@ import menu.*;
 
 public class Main {
     // Usuari admin comença null al principi per tal que no tingui permisos d'administrador
-    public static User admin = null;
+    public static Admin admin = null;
 
     public static void main(String[] args) {
         run();

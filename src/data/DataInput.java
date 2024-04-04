@@ -1,6 +1,6 @@
 package data;
 
-import classes.User;
+import classes.Admin;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -90,13 +90,13 @@ public interface DataInput {
         return age;
     }
 
-    static User introduceUsernameForLogin(ArrayList<User> users) {
+    static Admin introduceUsernameForLogin(ArrayList<Admin> users) {
         Scanner sc = new Scanner(System.in);
         System.out.println("0 => Sortir");
         System.out.println("Introdueix el nom d'usuari");
         String username = sc.nextLine();
         handleExit(username);
-        User user = validateUsername(users, username);
+        Admin user = validateUsername(users, username);
         if (user == null) {
             System.out.println("Error: No és un usuari correcte");
             Main.run();
@@ -104,8 +104,8 @@ public interface DataInput {
         return user;
     }
 
-    static User validateUsername(ArrayList<User> users, String username) {
-        for (User u : users) {
+    static Admin validateUsername(ArrayList<Admin> users, String username) {
+        for (Admin u : users) {
             if (username.equals(u.getUsername())) {
                 return u;
             }
@@ -113,7 +113,7 @@ public interface DataInput {
         return null;
     }
 
-    static void introducePasswordForLogin(User user) {
+    static void introducePasswordForLogin(Admin user) {
         Scanner sc = new Scanner(System.in);
         System.out.println("0 => Sortir");
         System.out.println("Introdueix la contrasenya");

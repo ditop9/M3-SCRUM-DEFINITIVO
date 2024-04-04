@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import classes.*;
 import app.Main;
+import manager.CustomerManager;
 
 public class Input {
     static ArrayList<String[]> readFileData(File file) throws FileNotFoundException {
@@ -20,9 +21,9 @@ public class Input {
         return fileData;
     }
 
-    public static ArrayList<User> readUsersFile() {
+    public static ArrayList<Admin> readUsersFile() {
         File file = new File("database/AdminData.csv");
-        ArrayList<User> users = new ArrayList<>();
+        ArrayList<Admin> users = new ArrayList<>();
         ArrayList<String[]> fileData = new ArrayList<>();
         try {
             fileData = readFileData(file);
@@ -31,13 +32,13 @@ public class Input {
             Main.run();
         }
         for (String[] line : fileData) {
-            users.add(new User(Integer.parseInt(line[0]), line[1], line[2]));
+            users.add(new Admin(Integer.parseInt(line[0]), line[1], line[2]));
         }
         return users;
     }
 
     public static void showUsers() {
-        ArrayList<User> users = readUsersFile();
+        ArrayList<Admin> users = readUsersFile();
         for (int i = 0; i < users.size(); i++) {
             System.out.println((i + 1) + ". " + users.get(i));
         }
@@ -125,7 +126,7 @@ public class Input {
         for (String[] line : fileData) {
             String identifier = line[0];
             String date = line[1];
-            Customer customer = Customer.selectCustomerById(Integer.parseInt(line[2]));
+            Customer customer = CustomerManager.selectCustomerById(Integer.parseInt(line[2]));
             Supermarket supermarket = Supermarket.selectSupermarketById(Integer.parseInt(line[3]));
             ArrayList<OrderProduct> orderProducts = Product.refactorProductIdInProducts(line[4]);
             orders.add(new Order(identifier, date, customer, supermarket, orderProducts));

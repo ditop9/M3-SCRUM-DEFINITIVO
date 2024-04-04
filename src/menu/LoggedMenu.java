@@ -1,9 +1,10 @@
 package menu;
 
-import classes.Customer;
-import classes.Order;
-import classes.User;
+import classes.Admin;
 import app.Main;
+import manager.AdminManager;
+import manager.CustomerManager;
+import manager.OrderManager;
 
 public class LoggedMenu {
     public static void displayMenu() {
@@ -11,14 +12,11 @@ public class LoggedMenu {
         System.out.println("""
                 ====== BENVINGUT A L'ENTORN D'USUARI ======
                 ___________________________________________
-                | * 1. AFEGIR NOU CLIENT                  |
-                | * 2. ELIMINAR CLIENT                    |
-                | * 3. AFEGIR NOVA COMPRA                 |
-                | * 4. ELIMINAR COMPRA                    |
-                | * 5. FILTRAR COMPRA                     |
-                | * 6. AFEGIR NOU USUARI MÀSTER           |
-                | * 7. ELIMINAR USUARI MÀSTER             |
-                | * 8. TANCAR SESSIÓ                      |
+                | * 1. GESTIÓ DE CLIENTS                  |
+                | * 2. GESTIÓ DE COMPRES                  |
+                | * 3. GESTIÓ DE SUPERMERCATS             |
+                | * 4. OPCIONS D'ADMINISTRADOR            |
+                | * 5. TANCAR SESSIÓ                      |
                 | * 0. SORTIR                             |
                 |_________________________________________|""");
     }
@@ -26,24 +24,19 @@ public class LoggedMenu {
     public static void handleOption(int option) {
         switch (option) {
             case 1:
-                Customer.addNewCustomer();
+                CustomerManager.run();
                 break;
             case 2:
-                Customer.deleteCustomer();
+                OrderManager.run();
                 break;
             case 3:
-                Order order = Order.createNewOrder();
-                System.out.println(order.getIdentifier());
-                System.out.println(order);
+
                 break;
-            case 6:
-                User.addNewMasterUser();
+            case 4:
+                AdminManager.run();
                 break;
-            case 7:
-                User.deleteMasterUser();
-                break;
-            case 8:
-                User.logout();
+            case 5:
+                AdminManager.logout();
                 break;
             case 0:
                 System.out.println("El programa es tanca...");

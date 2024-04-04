@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class User {
+public class Admin {
     private int identifier;
     private String username;
     private String password;
@@ -26,33 +26,33 @@ public class User {
         return password;
     }
 
-    public User(int identifier, String username, String password) {
+    public Admin(int identifier, String username, String password) {
         this.identifier = identifier;
         this.username = username;
         this.password = password;
     }
 
     static int getNewIdentifier() {
-        ArrayList<User> users = Input.readUsersFile();
+        ArrayList<Admin> users = Input.readUsersFile();
         return users.getLast().getIdentifier() + 1;
     }
 
-    static User createNewUser() {
+    static Admin createNewAdmin() {
         int identifier = getNewIdentifier();
         String username = DataInput.getValidString("Introdueix el nom d'usuari");
         String password = DataInput.getValidString("Introdueix la contrasenya");
-        return new User(identifier, username, password);
+        return new Admin(identifier, username, password);
     }
 
-    static User chooseExistingUser() {
-        ArrayList<User> users = Input.readUsersFile();
+    static Admin chooseExistingAdmin() {
+        ArrayList<Admin> users = Input.readUsersFile();
         Input.showUsers();
         System.out.println("0 => Sortir");
         int id = DataInput.getValidInteger("Introdueix l'ID de l'usuari");
         if (id == 0) {
             Main.run();
         }
-        for (User u : users) {
+        for (Admin u : users) {
             if (u.getIdentifier() == id) {
                 return u;
             }
@@ -62,8 +62,8 @@ public class User {
         return null;
     }
 
-    public static void addNewMasterUser() {
-        User newMasterUser = createNewUser();
+    public static void addNewAdmin() {
+        Admin newMasterUser = createNewAdmin();
         try {
             Output.writeUsersFile(newMasterUser);
         } catch (IOException e) {
@@ -72,13 +72,13 @@ public class User {
         }
     }
 
-    public static void deleteMasterUser() {
-        ArrayList<User> users = Input.readUsersFile();
+    public static void deleteAdmin() {
+        ArrayList<Admin> users = Input.readUsersFile();
         if (users.isEmpty()) {
             System.out.println("Error: No es troben usuaris Màster");
             Main.run();
         }
-        User user = User.chooseExistingUser();
+        Admin user = Admin.chooseExistingAdmin();
         System.out.println(user);
         System.out.println("Introdueix la contrasenya de l'usuari màster a eliminar");
         if (user == null) {
@@ -101,11 +101,6 @@ public class User {
             }
         }
     }
-
-    public static void logout() {
-        Main.admin = null;
-    }
-
     @Override
     public String toString() {
         return "User " +

@@ -3,6 +3,7 @@ package classes;
 import data.DataInput;
 import data.input_output.Input;
 import app.Main;
+import manager.CustomerManager;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -35,7 +36,7 @@ public class Order {
 
     public static Order createNewOrder() {
         String date = DataInput.getValidDate();
-        Customer customer = Customer.chooseExistingCustomer();
+        Customer customer = CustomerManager.chooseExistingCustomer();
         if (customer == null) {
             System.out.println("Error: No s'ha trobat el client");
             Main.run();
