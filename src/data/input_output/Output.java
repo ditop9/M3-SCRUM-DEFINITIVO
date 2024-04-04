@@ -2,6 +2,7 @@ package data.input_output;
 
 import classes.Customer;
 import classes.Admin;
+import classes.Supermarket;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -51,6 +52,16 @@ public class Output {
         PrintWriter pw = new PrintWriter(fw);
         pw.println();
         pw.print(customer.getIdentifier() + "," + customer.getDni() + "," + customer.getName() + "," + customer.getAge());
+        pw.close();
+        fw.close();
+    }
+
+    public static void writeSupermarketsFile(Supermarket supermarket) throws IOException {
+        File file = new File("database/SupermarketsData.csv");
+        FileWriter fw = new FileWriter(file, true);
+        PrintWriter pw = new PrintWriter(fw);
+        pw.println();
+        pw.print(supermarket.getIdentifier() + "," + supermarket.getName());
         pw.close();
         fw.close();
     }

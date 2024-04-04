@@ -1,17 +1,18 @@
 package menu;
 
-import classes.Admin;
 import app.Main;
 import manager.AdminManager;
 import manager.CustomerManager;
 import manager.OrderManager;
+import manager.SupermarketManager;
 
 public class LoggedMenu {
     public static void displayMenu() {
         System.out.println(Main.admin.getUsername());
         System.out.println("""
-                ====== BENVINGUT A L'ENTORN D'USUARI ======
                 ___________________________________________
+                |  === BENVINGUT A L'ENTORN D'USUARI ===  |
+                |_________________________________________|
                 | * 1. GESTIÓ DE CLIENTS                  |
                 | * 2. GESTIÓ DE COMPRES                  |
                 | * 3. GESTIÓ DE SUPERMERCATS             |
@@ -30,7 +31,7 @@ public class LoggedMenu {
                 OrderManager.run();
                 break;
             case 3:
-
+                SupermarketManager.run();
                 break;
             case 4:
                 AdminManager.run();

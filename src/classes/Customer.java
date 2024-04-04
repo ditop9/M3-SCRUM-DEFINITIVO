@@ -36,13 +36,14 @@ public class Customer {
         this.age = edad;
         orderList = new ArrayList<>();
     }
+
     @Override
     public String toString() {
         return "Client" +
-                " ID " + identifier +
-                " DNI " + dni +
-                " Nom " + name +
-                " Edat " + age;
+               " ID " + identifier +
+               " DNI " + dni +
+               " Nom " + name +
+               " Edat " + age;
     }
 }
 

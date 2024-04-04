@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class CustomerManager {
     private final static ArrayList<Customer> customers = Input.readCustomersFile();
+
     public static void run() {
         int option;
         do {
@@ -20,17 +21,21 @@ public class CustomerManager {
             handleOption(option);
         } while (option != 0);
     }
+
     public static void displayMenu() {
         System.out.println("""
-                ===============================
+                _______________________________
                 |  ==== MENÚ DE CLIENTS ====  |
                 |_____________________________|
                 | 1. AFEGIR CLIENT            |
                 | 2. ELIMINAR CLIENT          |
-                | 3. BUSCAR CLIENT            |
+                | 3. MOSTRAR TOTS ELS CLIENTS |
+                | 4. CERCAR CLIENT PER ID     |
+                | 5. CERCAR CLIENT PER NOM    |
                 | 0. TORNAR AL MENÚ PRINCIPAL |
                 |_____________________________|""");
     }
+
     public static void handleOption(int option) {
         switch (option) {
             case 1:
@@ -40,6 +45,22 @@ public class CustomerManager {
                 deleteCustomer();
                 break;
             case 3:
+                Input.showCustomers();
+                break;
+            case 4:
+                Customer customer = searchCustomerById();
+                if (customer != null) {
+                    System.out.println(customer);
+                }
+                break;
+            case 5:
+                ArrayList<Customer> foundCustomers = searchCustomerByName();
+                if (!foundCustomers.isEmpty()) {
+                    System.out.println("Clients trobats:");
+                    for (Customer c : foundCustomers) {
+                        System.out.println(c);
+                    }
+                } else System.out.println("Error: No s'ha trobat cap client amb aquest nom");
                 break;
             case 0:
                 System.out.println("Tornant al menú principal");
@@ -50,9 +71,11 @@ public class CustomerManager {
                 break;
         }
     }
+
     static int getNewIdentifier() {
         return customers.getLast().getIdentifier() + 1;
     }
+
     public static Customer createNewCustomer() {
         int identifier = getNewIdentifier();
         String dni = DataInput.getValidDni();
@@ -60,6 +83,7 @@ public class CustomerManager {
         int age = DataInput.getValidAge();
         return new Customer(identifier, dni, name, age);
     }
+
     public static void addNewCustomer() {
         Customer customer = createNewCustomer();
         try {
@@ -69,11 +93,34 @@ public class CustomerManager {
             Main.run();
         }
     }
-    public static void searchCustomerById() {
-        int id = DataInput.getValidInteger("Introdueix l'ID del client");
-        ArrayList<Customer> customers = Input.readCustomersFile();
 
+    public static Customer searchCustomerById() {
+        System.out.println("0 => Sortir");
+        int id = DataInput.getValidInteger("Introdueix l'ID del client");
+        DataInput.handleExit(String.valueOf(id));
+        for (Customer c : customers) {
+            if (c.getIdentifier() == id) {
+                System.out.println("Client trobat amb ID: " + id);
+                return c;
+            }
+        }
+        System.out.println("Error: No s'ha trobat el client");
+        return null;
     }
+
+    public static ArrayList<Customer> searchCustomerByName() {
+        ArrayList<Customer> foundCustomers = new ArrayList<>();
+        System.out.println("0 => Sortir");
+        String name = DataInput.getValidString("Introdueix el nom del client");
+        DataInput.handleExit(name);
+        for (Customer c : customers) {
+            if (c.getName().equals(name)) {
+                foundCustomers.add(c);
+            }
+        }
+        return foundCustomers;
+    }
+
     public static Customer selectCustomerById(int id) {
         for (Customer c : customers) {
             if (id == c.getIdentifier()) {
@@ -82,6 +129,7 @@ public class CustomerManager {
         }
         return null;
     }
+
     public static Customer chooseExistingCustomer() {
         Input.showCustomers();
         System.out.println("0 => Sortir");
@@ -96,6 +144,7 @@ public class CustomerManager {
         Main.run();
         return null;
     }
+
     public static void deleteCustomer() {
         if (customers.isEmpty()) {
             System.out.println("Error: No es troben clients");

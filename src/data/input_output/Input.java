@@ -3,11 +3,13 @@ package data.input_output;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import classes.*;
 import app.Main;
 import manager.CustomerManager;
+import manager.SupermarketManager;
 
 public class Input {
     static ArrayList<String[]> readFileData(File file) throws FileNotFoundException {
@@ -127,8 +129,8 @@ public class Input {
             String identifier = line[0];
             String date = line[1];
             Customer customer = CustomerManager.selectCustomerById(Integer.parseInt(line[2]));
-            Supermarket supermarket = Supermarket.selectSupermarketById(Integer.parseInt(line[3]));
-            ArrayList<OrderProduct> orderProducts = Product.refactorProductIdInProducts(line[4]);
+            Supermarket supermarket = SupermarketManager.selectSupermarketById(Integer.parseInt(line[3]));
+            HashMap<Product, Double> orderProducts = Product.refactorProductIdInProducts(line[4]);
             orders.add(new Order(identifier, date, customer, supermarket, orderProducts));
         }
         return orders;

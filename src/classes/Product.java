@@ -3,6 +3,7 @@ package classes;
 import data.input_output.Input;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Classe que representa un producte en el sistema.
@@ -40,7 +41,7 @@ public class Product {
      * @param productsIdLine La línia de productes en format "id:quantitat'id:quantitat'..."
      * @return Una llista de productes de la compra amb les seves quantitats corresponents.
      */
-    public static ArrayList<OrderProduct> refactorProductIdInProducts(String productsIdLine) {
+    public static HashMap<Product, Double> refactorProductIdInProducts(String productsIdLine) {
         String[] productsIdAndQuantity = productsIdLine.split("'");
         return refactorOrderProducts(productsIdAndQuantity);
     }
@@ -67,12 +68,12 @@ public class Product {
      * @param products Array de productes en format "id:quantitat".
      * @return Una llista de productes de la comanda amb les seves quantitats corresponents.
      */
-    public static ArrayList<OrderProduct> refactorOrderProducts(String[] products) {
-        ArrayList<OrderProduct> orderProducts = new ArrayList<>();
+    public static HashMap<Product, Double> refactorOrderProducts(String[] products) {
+        HashMap<Product, Double> orderProducts = new HashMap<>();
         for (String p : products) {
             String[] productsSplit = p.split(":");
             Product product = selectProductById(Integer.parseInt(productsSplit[0]));
-            orderProducts.add(new OrderProduct(product, Double.parseDouble(productsSplit[1])));
+            orderProducts.put(product, Double.parseDouble(productsSplit[1]));
         }
         return orderProducts;
     }
@@ -80,9 +81,10 @@ public class Product {
     @Override
     public String toString() {
         return "ID " + identifier +
-                " Nom " + name +
-                " Preu " + price;
+               " Nom " + name +
+               " Preu " + price;
     }
+
     public String toStringTicket() {
         return name + ". Preu: " + price;
     }

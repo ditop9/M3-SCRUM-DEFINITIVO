@@ -17,7 +17,7 @@ public class AdminManager {
 
     public static void displayMenu() {
         System.out.println("""
-                =======================================
+                _______________________________________
                 |  ==== OPCIONS D'ADMINISTRADOR ====  |
                 |_____________________________________|
                 | 1. AFEGIR ADMINISTRADOR             |

@@ -19,3 +19,23 @@ ID,Nom,Preu,Producte de pes
 18,Formatge,3.99,FALSE
 19,Tomàquets,1,TRUE
 20,Iogurt,2.99,FALSE
+21,Formatge fresc,2.75,FALSE
+22,Síndria,4.5,TRUE
+23,Salsitxes,3.25,FALSE
+24,Broquil,1.75,TRUE
+25,Salmó,8.99,TRUE
+26,Peix espasa,7.5,TRUE
+27,Tonyina en llauna,1.99,FALSE
+28,Pernil cuit,3.49,FALSE
+29,Ceba,0.75,TRUE
+30,Mandarines,1.99,TRUE
+31,Brotxeta de pollastre,5.25,FALSE
+32,Pa de motlle,1.25,FALSE
+33,Llenguado,6.99,TRUE
+34,Gambes,15.99,TRUE
+35,Vacío de ternera,9.5,FALSE
+36,Gelatina de maduixa,0.99,FALSE
+37,Bacallà,12.99,TRUE
+38,Cervesa,1.2,FALSE
+39,Gel,3.5,FALSE
+40,Crema solar,9.99,FALSE
