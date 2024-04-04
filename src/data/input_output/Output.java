@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Output {
-    public static void reWriteUsersFile(ArrayList<Admin> users) throws FileNotFoundException {
+    public static void reWriteAdminFile(ArrayList<Admin> users) throws FileNotFoundException {
         File file = new File("database/AdminData.csv");
         PrintWriter pw = new PrintWriter(file);
         pw.println("ID,Nom,Contrasenya");
@@ -22,7 +22,7 @@ public class Output {
         pw.close();
     }
 
-    public static void writeUsersFile(Admin user) throws IOException {
+    public static void writeAdminFIle(Admin user) throws IOException {
         File file = new File("database/AdminData.csv");
         FileWriter fw = new FileWriter(file, true);
         PrintWriter pw = new PrintWriter(fw);
@@ -47,7 +47,7 @@ public class Output {
     }
 
     public static void writeCustomersFile(Customer customer) throws IOException {
-        File file = new File("database/AdminData.csv");
+        File file = new File("database/CustomersData.csv");
         FileWriter fw = new FileWriter(file, true);
         PrintWriter pw = new PrintWriter(fw);
         pw.println();

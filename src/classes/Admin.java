@@ -65,7 +65,7 @@ public class Admin {
     public static void addNewAdmin() {
         Admin newMasterUser = createNewAdmin();
         try {
-            Output.writeUsersFile(newMasterUser);
+            Output.writeAdminFIle(newMasterUser);
         } catch (IOException e) {
             System.out.println(e + "Error: No s'ha trobat l'arxiu d'usuaris");
             Main.run();
@@ -89,7 +89,7 @@ public class Admin {
             if (DataInput.confirmAction()) {
                 users.removeIf(u -> u.getIdentifier() == user.getIdentifier());
                 try {
-                    Output.reWriteUsersFile(users);
+                    Output.reWriteAdminFile(users);
                     System.out.println("S'ha eliminat l'usuari");
                 } catch (FileNotFoundException e) {
                     System.out.println("Error: No s'ha trobat l'arxiu dels usuaris");

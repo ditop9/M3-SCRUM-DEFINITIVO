@@ -98,7 +98,7 @@ public class CustomerManager {
         System.out.println("0 => Sortir");
         int id = DataInput.getValidInteger("Introdueix l'ID del client");
         DataInput.handleExit(String.valueOf(id));
-        for (Customer c : customers) {
+        for (Customer c : Input.readCustomersFile()) {
             if (c.getIdentifier() == id) {
                 System.out.println("Client trobat amb ID: " + id);
                 return c;
@@ -110,7 +110,6 @@ public class CustomerManager {
 
     public static ArrayList<Customer> searchCustomerByName() {
         ArrayList<Customer> foundCustomers = new ArrayList<>();
-        System.out.println("0 => Sortir");
         String name = DataInput.getValidString("Introdueix el nom del client");
         DataInput.handleExit(name);
         for (Customer c : customers) {
