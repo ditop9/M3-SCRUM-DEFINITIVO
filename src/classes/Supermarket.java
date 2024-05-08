@@ -1,11 +1,5 @@
 package classes;
 
-import data.DataInput;
-import data.input_output.Input;
-import app.Main;
-
-import java.util.ArrayList;
-
 public class Supermarket {
     private int identifier;
     private String name;
