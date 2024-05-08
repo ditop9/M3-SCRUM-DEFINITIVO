@@ -4,8 +4,11 @@ import data.DataInput;
 import data.input_output.Input;
 import app.Main;
 import manager.CustomerManager;
+import manager.SupermarketManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class Order {
@@ -13,13 +16,13 @@ public class Order {
     private final String date;
     private final Customer customer;
     private final Supermarket supermarket;
-    private final ArrayList<OrderProduct> productsOrder;
+    private final HashMap<Product, Double> productsOrder;
 
     public String getIdentifier() {
         return identifier;
     }
 
-    public Order(String identifier, String date, Customer customer, Supermarket supermarket, ArrayList<OrderProduct> productsOrder) {
+    public Order(String identifier, String date, Customer customer, Supermarket supermarket, HashMap<Product, Double> productsOrder) {
         this.identifier = identifier;
         this.date = date;
         this.customer = customer;
@@ -41,12 +44,12 @@ public class Order {
             System.out.println("Error: No s'ha trobat el client");
             Main.run();
         } else System.out.println("Client escollit: " + customer.getName());
-        Supermarket supermarket = Supermarket.chooseExistingSupermarket();
+        Supermarket supermarket = SupermarketManager.chooseExistingSupermarket();
         if (supermarket == null) {
             System.out.println("Error: No s'ha trobat el supermercat");
             Main.run();
         } else System.out.println("Supermercat escollit: " + supermarket.getName());
-        ArrayList<OrderProduct> products = chooseProductsList();
+        HashMap<Product, Double> products = chooseProductsList();
         if (products.isEmpty()) {
             System.out.println("Error: No s'han trobat productes comprats");
             Main.run();
@@ -55,8 +58,8 @@ public class Order {
         return new Order(identifier, date, customer, supermarket, products);
     }
 
-    public static ArrayList<OrderProduct> chooseProductsList() {
-        ArrayList<OrderProduct> chosenProducts = new ArrayList<>();
+    public static HashMap<Product, Double> chooseProductsList() {
+        HashMap<Product, Double> chosenProducts = new HashMap<>();
         int identifier;
         do {
             System.out.println("0 => Finalitzar");
@@ -76,7 +79,7 @@ public class Order {
                         if (product.isWeight()) {
                             System.out.println("S'ha afegit " + quantity + "Kg de " + product.getName());
                         } else System.out.println("S'ha afegit " + quantity + " unitats de " + product.getName());
-                        chosenProducts.add(new OrderProduct(product, quantity));
+                        chosenProducts.put(product, quantity);
                     } else System.out.println("No s'ha afegit el producte");
                 } else System.out.println("Error: Producte no trobat");
             }
@@ -95,11 +98,11 @@ public class Order {
     }
 
     void showProducts(StringBuilder sb) {
-        for (OrderProduct p : productsOrder) {
-            if (p.getProduct().isWeight()) {
-                sb.append(p.getProduct().toStringTicket()).append(" Quantitat: ").append(p.getQuantity()).append("Kg\n");
+        for (Map.Entry<Product, Double> entry : productsOrder.entrySet()) {
+            if (entry.getKey().isWeight()) {
+                sb.append(entry.getKey().toStringTicket()).append(" Quantitat: ").append(entry.getValue()).append("Kg\n");
             } else {
-                sb.append(p.getProduct().toStringTicket()).append(" Quantitat: ").append(p.getQuantity()).append("\n");
+                sb.append(entry.getKey().toStringTicket()).append(" Quantitat: ").append(entry.getValue()).append("\n");
             }
         }
     }

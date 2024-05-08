@@ -63,10 +63,10 @@ public interface DataInput {
             System.out.println("Introdueix eL DNI");
             dni = sc.nextLine();
             handleExit(dni);
-            if (validateDni(dni)) {
+            if (!validateDni(dni)) {
                 System.out.println("Error: No és un format correcte de DNI. Exemple '12345678A'");
             }
-        } while (validateDni(dni));
+        } while (!validateDni(dni));
         return dni;
     }
 

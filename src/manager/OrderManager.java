@@ -15,15 +15,17 @@ public class OrderManager {
             handleOption(option);
         } while (option != 0);
     }
+
     public static void displayMenu() {
         System.out.println("""
-                ===============================
+                _______________________________
                 |  ==== MENÚ DE COMPRES ====  |
                 |_____________________________|
                 | 1. AFEGIR COMPRA            |
                 | 0. TORNAR AL MENÚ PRINCIPAL |
                 |_____________________________|""");
     }
+
     public static void handleOption(int option) {
         switch (option) {
             case 1:
