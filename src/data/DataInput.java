@@ -106,7 +106,7 @@ public interface DataInput {
 
     static Admin validateUsername(ArrayList<Admin> users, String username) {
         for (Admin u : users) {
-            if (username.equals(u.getUsername())) {
+            if (username.equals(u.getName())) {
                 return u;
             }
         }

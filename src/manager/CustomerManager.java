@@ -1,6 +1,7 @@
 package manager;
 
 import app.Main;
+import app.SQLConnection;
 import classes.Customer;
 import data.DataInput;
 import data.input_output.Input;
@@ -8,9 +9,11 @@ import data.input_output.Output;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 
 public class CustomerManager {
+    private static final Connection con = SQLConnection.getConnection();
     private final static ArrayList<Customer> customers = Input.readCustomersFile();
     public static void run() {
         int option;

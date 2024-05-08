@@ -2,7 +2,6 @@ package manager;
 
 import app.Main;
 import classes.Admin;
-import classes.Order;
 import data.DataInput;
 
 public class AdminManager {
@@ -29,7 +28,10 @@ public class AdminManager {
     public static void handleOption(int option) {
         switch (option) {
             case 1:
-                Admin.addNewAdmin();
+                Admin admin = Admin.createNewAdmin();
+                if (admin.create()) {
+                    System.out.println("S'ha introduït el nou usuari Admin.");
+                } else System.out.println("Error: no s'ha pogut introduïr l'usuari Admin.");
                 break;
             case 2:
                 Admin.deleteAdmin();
@@ -42,9 +44,5 @@ public class AdminManager {
                 System.out.println("Error: No és una opció vàlida");
                 break;
         }
-    }
-
-    public static void logout() {
-        Main.admin = null;
     }
 }

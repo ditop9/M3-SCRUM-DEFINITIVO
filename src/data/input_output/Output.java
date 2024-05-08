@@ -13,7 +13,7 @@ public class Output {
         pw.println("ID,Nom,Contrasenya");
         for (int i = 0; i < users.size(); i++) {
             Admin u = users.get(i);
-            pw.print(u.getIdentifier() + "," + u.getUsername() + "," + u.getPassword());
+            pw.print(u.getId() + "," + u.getName() + "," + u.getPassword());
             if (i < users.size() - 1) {
                 pw.println();
             }
@@ -26,7 +26,7 @@ public class Output {
         FileWriter fw = new FileWriter(file, true);
         PrintWriter pw = new PrintWriter(fw);
         pw.println();
-        pw.print(user.getIdentifier() + "," + user.getUsername() + "," + user.getPassword());
+        pw.print(user.getId() + "," + user.getName() + "," + user.getPassword());
         pw.close();
         fw.close();
     }

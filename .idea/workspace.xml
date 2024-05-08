@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5b6005db-1096-4cfd-b136-578c7a1a7f00" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/SQLConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M03-scrum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/M03-scrum.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/DataInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DataInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/input_output/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/input_output/Output.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/AdminManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/AdminManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/LoggedMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/LoggedMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/MainMenu.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2e5OuCBQakcAgy6jdYQWAjMYqj6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/diego/IdeaProjects/M03-scrum/Supermarket.sqlite",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\diego\IdeaProjects\M03-scrum\src\database" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5b6005db-1096-4cfd-b136-578c7a1a7f00" name="Changes" comment="" />
+      <created>1711191193130</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711191193130</updated>
+      <workItem from="1711191194273" duration="403000" />
+      <workItem from="1711192342871" duration="957000" />
+      <workItem from="1711228297044" duration="4148000" />
+      <workItem from="1711233325021" duration="1457000" />
+      <workItem from="1711289969642" duration="264000" />
+      <workItem from="1711290761372" duration="2972000" />
+      <workItem from="1711294717528" duration="4483000" />
+      <workItem from="1711376510443" duration="650000" />
+      <workItem from="1711379310982" duration="9000" />
+      <workItem from="1711383389663" duration="3947000" />
+      <workItem from="1711403350359" duration="6608000" />
+      <workItem from="1711443259048" duration="1351000" />
+      <workItem from="1711468285541" duration="378000" />
+      <workItem from="1711469013358" duration="4307000" />
+      <workItem from="1711573427546" duration="13000" />
+      <workItem from="1711712605353" duration="3822000" />
+      <workItem from="1711724459221" duration="2767000" />
+      <workItem from="1711801512156" duration="5084000" />
+      <workItem from="1711814514109" duration="1896000" />
+      <workItem from="1711877512553" duration="606000" />
+      <workItem from="1711898778827" duration="205000" />
+      <workItem from="1712040384838" duration="1734000" />
+      <workItem from="1712047506387" duration="63000" />
+      <workItem from="1712211948280" duration="2955000" />
+      <workItem from="1712654317416" duration="63000" />
+      <workItem from="1714734232782" duration="255000" />
+      <workItem from="1715089296494" duration="637000" />
+      <workItem from="1715091044970" duration="2818000" />
+      <workItem from="1715093932903" duration="206000" />
+      <workItem from="1715094162591" duration="847000" />
+      <workItem from="1715095046670" duration="1650000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NumberFormatException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

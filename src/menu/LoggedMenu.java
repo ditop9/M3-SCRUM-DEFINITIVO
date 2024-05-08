@@ -1,14 +1,14 @@
 package menu;
 
-import classes.Admin;
 import app.Main;
+import classes.Admin;
 import manager.AdminManager;
 import manager.CustomerManager;
 import manager.OrderManager;
 
 public class LoggedMenu {
     public static void displayMenu() {
-        System.out.println(Main.admin.getUsername());
+        System.out.println(Main.admin.getName());
         System.out.println("""
                 ====== BENVINGUT A L'ENTORN D'USUARI ======
                 ___________________________________________
@@ -36,7 +36,7 @@ public class LoggedMenu {
                 AdminManager.run();
                 break;
             case 5:
-                AdminManager.logout();
+                Admin.logout();
                 break;
             case 0:
                 System.out.println("El programa es tanca...");

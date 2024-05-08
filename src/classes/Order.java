@@ -87,7 +87,7 @@ public class Order {
     static Product chooseProduct(int identifier) {
         ArrayList<Product> productsList = Input.readProductsFile();
         for (Product p : productsList) {
-            if (identifier == p.getIdentifier()) {
+            if (identifier == p.getId()) {
                 return p;
             }
         }

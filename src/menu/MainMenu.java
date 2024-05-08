@@ -1,12 +1,6 @@
 package menu;
 
-import data.input_output.Input;
-
-import java.util.ArrayList;
-
-import classes.Admin;
-import data.DataInput;
-import app.Main;
+import static classes.Admin.login;
 
 public class MainMenu {
     public static void displayMenu() {
@@ -31,12 +25,5 @@ public class MainMenu {
                 System.out.println("Error: No és una opció vàlida.");
                 break;
         }
-    }
-
-    static void login() {
-        ArrayList<Admin> users = Input.readUsersFile();
-        Admin user = DataInput.introduceUsernameForLogin(users);
-        DataInput.introducePasswordForLogin(user);
-        Main.admin = user;
     }
 }

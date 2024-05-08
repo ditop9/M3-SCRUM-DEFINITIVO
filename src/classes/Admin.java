@@ -1,50 +1,111 @@
 package classes;
 
+import app.SQLConnection;
 import data.DataInput;
 import data.input_output.Input;
 import data.input_output.Output;
 import app.Main;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class Admin {
-    private int identifier;
-    private String username;
+    private static final Connection con = SQLConnection.getConnection();
+    private int id;
+    private String name;
     private String password;
 
-    public int getIdentifier() {
-        return identifier;
+    public int getId() {
+        return id;
     }
 
-    public String getUsername() {
-        return username;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public Admin(int identifier, String username, String password) {
-        this.identifier = identifier;
-        this.username = username;
+    public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Admin() {
+        id = -1;
+    }
+
+    public Admin(int identifier, String username, String password) {
+        this.id = identifier;
+        this.name = username;
+        this.password = password;
+    }
+
+    public static void login() {
+        String name = DataInput.getValidString("Introdueix el nom d'usuari");
+        int id = verifyName(name);
+        if (id != -1) {
+            String password = DataInput.getValidString("Introdueix la contrassenya");
+            if (verifyPassword(id, password)) {
+                Main.admin.setId(id);
+                Main.admin.setName(name);
+                Main.admin.setPassword(password);
+            } else System.out.println("Error: contrassenya no vàlida.");
+        } else System.out.println("Error: no es troba l'usuari.");
+    }
+
+    public static void logout() {
+        Main.admin = new Admin();
+    }
+
+    private static int verifyName(String name) {
+        String query = "SELECT admin_id FROM Admins WHERE name = ?";
+        try (PreparedStatement statement = con.prepareStatement(query)) {
+            statement.setString(1, name);
+            ResultSet result = statement.executeQuery();
+            return result.getInt(1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return -1;
+        }
+    }
+
+    private static boolean verifyPassword(int id, String password) {
+        String query = "SELECT password FROM Admins WHERE admin_id = ?";
+        try (PreparedStatement statement = con.prepareStatement(query)) {
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
+            return result.getString(1).equals(password);
+         } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     static int getNewIdentifier() {
         ArrayList<Admin> users = Input.readUsersFile();
-        return users.getLast().getIdentifier() + 1;
+        return users.getLast().getId() + 1;
     }
 
-    static Admin createNewAdmin() {
+    public static Admin createNewAdmin() {
         int identifier = getNewIdentifier();
         String username = DataInput.getValidString("Introdueix el nom d'usuari");
         String password = DataInput.getValidString("Introdueix la contrasenya");
         return new Admin(identifier, username, password);
     }
 
-    static Admin chooseExistingAdmin() {
+    private static Admin chooseExistingAdmin() {
         ArrayList<Admin> users = Input.readUsersFile();
         Input.showUsers();
         System.out.println("0 => Sortir");
@@ -53,7 +114,7 @@ public class Admin {
             Main.run();
         }
         for (Admin u : users) {
-            if (u.getIdentifier() == id) {
+            if (u.getId() == id) {
                 return u;
             }
         }
@@ -62,13 +123,16 @@ public class Admin {
         return null;
     }
 
-    public static void addNewAdmin() {
-        Admin newMasterUser = createNewAdmin();
-        try {
-            Output.writeUsersFile(newMasterUser);
-        } catch (IOException e) {
-            System.out.println(e + "Error: No s'ha trobat l'arxiu d'usuaris");
-            Main.run();
+    public boolean create() {
+        String query = "INSERT INTO Admins (admin_id, name, password) VALUES (?, ?, ?)";
+        try (PreparedStatement statement = con.prepareStatement(query)) {
+            statement.setInt(1, id);
+            statement.setString(2, name);
+            statement.setString(3, password);
+            return statement.executeUpdate() > 0;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 
@@ -87,7 +151,7 @@ public class Admin {
         } else {
             DataInput.introducePasswordForLogin(user);
             if (DataInput.confirmAction()) {
-                users.removeIf(u -> u.getIdentifier() == user.getIdentifier());
+                users.removeIf(u -> u.getId() == user.getId());
                 try {
                     Output.reWriteUsersFile(users);
                     System.out.println("S'ha eliminat l'usuari");
@@ -104,7 +168,7 @@ public class Admin {
     @Override
     public String toString() {
         return "User " +
-                "ID " + identifier +
-                " Username " + username;
+                "ID " + id +
+                " Username " + name;
     }
 }
