@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b6005db-1096-4cfd-b136-578c7a1a7f00" name="Changes" comment="">
+    <list default="true" id="5b6005db-1096-4cfd-b136-578c7a1a7f00" name="Changes" comment="1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/input_output/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/input_output/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/input_output/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/input_output/Output.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/AdminManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/AdminManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/CustomerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/DAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -106,12 +101,25 @@
       <workItem from="1715093932903" duration="206000" />
       <workItem from="1715094162591" duration="847000" />
       <workItem from="1715095046670" duration="1650000" />
-      <workItem from="1715179919727" duration="1479000" />
+      <workItem from="1715179919727" duration="2251000" />
     </task>
+    <task id="LOCAL-00001" summary="1">
+      <option name="closed" value="true" />
+      <created>1715181842336</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715181842336</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

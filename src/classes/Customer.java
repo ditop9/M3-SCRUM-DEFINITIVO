@@ -8,8 +8,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class Customer {
+public class Customer implements DAO {
     private static final Connection con = SQLConnection.getConnection();
     private final int id;
     private final String dni;
@@ -45,18 +46,22 @@ public class Customer {
         orderList = new ArrayList<>();
     }
 
-    public static List<Customer> read() {
+    @Override
+    public List<Object> read() {
         try (Statement statement = con.createStatement()) {
             ResultSet rs = statement.executeQuery("SELECT * FROM Customers");
-            List<Customer> customers = new ArrayList<>();
+            List<Object> customers = new ArrayList<>();
             while (rs.next()) {
-                customers.add(new Customer(rs.getInt(1), rs.))
+                customers.add(new Customer(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4)));
             }
+            return customers;
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return null;
         }
     }
 
+    @Override
     public boolean create() {
         String query = "INSERT INTO Customers () VALUES (?, ?, ?, ?)";
         try (PreparedStatement statement = con.prepareStatement(query)) {
