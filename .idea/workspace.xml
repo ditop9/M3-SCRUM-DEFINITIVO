@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b6005db-1096-4cfd-b136-578c7a1a7f00" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/SQLConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M03-scrum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/M03-scrum.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/DataInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DataInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/input_output/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/input_output/Input.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/input_output/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/input_output/Output.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/manager/AdminManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/AdminManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/LoggedMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/LoggedMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/manager/CustomerManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,30 +38,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/diego/IdeaProjects/M03-scrum/Supermarket.sqlite",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/diego/IdeaProjects/M03-scrum/Supermarket.sqlite&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\diego\IdeaProjects\M03-scrum\src\database" />
@@ -109,6 +106,7 @@
       <workItem from="1715093932903" duration="206000" />
       <workItem from="1715094162591" duration="847000" />
       <workItem from="1715095046670" duration="1650000" />
+      <workItem from="1715179919727" duration="1479000" />
     </task>
     <servers />
   </component>

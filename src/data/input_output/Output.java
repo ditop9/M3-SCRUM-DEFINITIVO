@@ -38,7 +38,7 @@ public class Output {
         pw.println("ID,DNI,Nom,Edat");
         for (int i = 0; i < customers.size(); i++) {
             Customer c = customers.get(i);
-            pw.print(c.getIdentifier() + "," + c.getDni() + "," + c.getName() + "," + c.getAge());
+            pw.print(c.getId() + "," + c.getDni() + "," + c.getName() + "," + c.getAge());
             if (i < customers.size() - 1) {
                 pw.println();
             }
@@ -51,7 +51,7 @@ public class Output {
         FileWriter fw = new FileWriter(file, true);
         PrintWriter pw = new PrintWriter(fw);
         pw.println();
-        pw.print(customer.getIdentifier() + "," + customer.getDni() + "," + customer.getName() + "," + customer.getAge());
+        pw.print(customer.getId() + "," + customer.getDni() + "," + customer.getName() + "," + customer.getAge());
         pw.close();
         fw.close();
     }

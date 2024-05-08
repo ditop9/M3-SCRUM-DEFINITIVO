@@ -34,7 +34,7 @@ public class AdminManager {
                 } else System.out.println("Error: no s'ha pogut introduïr l'usuari Admin.");
                 break;
             case 2:
-                Admin.deleteAdmin();
+                Admin.delete();
                 break;
             case 0:
                 System.out.println("Tornant al menú principal");

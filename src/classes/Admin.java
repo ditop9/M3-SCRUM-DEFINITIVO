@@ -6,11 +6,14 @@ import data.input_output.Input;
 import data.input_output.Output;
 import app.Main;
 
+import java.awt.color.ICC_ColorSpace;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Admin {
     private static final Connection con = SQLConnection.getConnection();
@@ -123,6 +126,20 @@ public class Admin {
         return null;
     }
 
+    public static List<Admin> read() {
+        try (Statement statement = con.createStatement()) {
+            ResultSet rs = statement.executeQuery("SELECT * FROM Admins");
+            List<Admin> admins = new ArrayList<>();
+            while (rs.next()) {
+                admins.add(new Admin(rs.getInt(1), rs.getString(2), rs.getString(3)));
+            }
+            return admins;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
     public boolean create() {
         String query = "INSERT INTO Admins (admin_id, name, password) VALUES (?, ?, ?)";
         try (PreparedStatement statement = con.prepareStatement(query)) {
@@ -136,33 +153,14 @@ public class Admin {
         }
     }
 
-    public static void deleteAdmin() {
-        ArrayList<Admin> users = Input.readUsersFile();
-        if (users.isEmpty()) {
-            System.out.println("Error: No es troben usuaris Màster");
-            Main.run();
-        }
-        Admin user = Admin.chooseExistingAdmin();
-        System.out.println(user);
-        System.out.println("Introdueix la contrasenya de l'usuari màster a eliminar");
-        if (user == null) {
-            System.out.println("S'ha produït un error");
-            Main.run();
-        } else {
-            DataInput.introducePasswordForLogin(user);
-            if (DataInput.confirmAction()) {
-                users.removeIf(u -> u.getId() == user.getId());
-                try {
-                    Output.reWriteUsersFile(users);
-                    System.out.println("S'ha eliminat l'usuari");
-                } catch (FileNotFoundException e) {
-                    System.out.println("Error: No s'ha trobat l'arxiu dels usuaris");
-                    Main.run();
-                }
-            } else {
-                System.out.println("Error: No s'ha proporcionat el número correcte");
-                Main.run();
-            }
+    public boolean delete() {
+        String query = "DELETE FROM Admin WHERE admin_id = ?";
+        try (PreparedStatement statement = con.prepareStatement(query)) {
+            statement.setInt(1, id);
+            return statement.executeUpdate() > 0;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
         }
     }
     @Override

@@ -40,10 +40,10 @@ public class Product {
      * @param productsIdLine La línia de productes en format "id:quantitat'id:quantitat'..."
      * @return Una llista de productes de la compra amb les seves quantitats corresponents.
      */
-    public static ArrayList<OrderProduct> refactorProductIdInProducts(String productsIdLine) {
-        String[] productsIdAndQuantity = productsIdLine.split("'");
-        return refactorOrderProducts(productsIdAndQuantity);
-    }
+//    public static ArrayList<OrderProduct> refactorProductIdInProducts(String productsIdLine) {
+//        String[] productsIdAndQuantity = productsIdLine.split("'");
+//        return refactorOrderProducts(productsIdAndQuantity);
+//    }
 
     /**
      * Mètode que selecciona un producte pel seu identificador.
@@ -60,22 +60,15 @@ public class Product {
         }
         return null;
     }
-
-    /**
-     * Mètode que refactura els productes d'una comanda.
-     *
-     * @param products Array de productes en format "id:quantitat".
-     * @return Una llista de productes de la comanda amb les seves quantitats corresponents.
-     */
-    public static ArrayList<OrderProduct> refactorOrderProducts(String[] products) {
-        ArrayList<OrderProduct> orderProducts = new ArrayList<>();
-        for (String p : products) {
-            String[] productsSplit = p.split(":");
-            Product product = selectProductById(Integer.parseInt(productsSplit[0]));
-            orderProducts.add(new OrderProduct(product, Double.parseDouble(productsSplit[1])));
-        }
-        return orderProducts;
-    }
+//    public static ArrayList<OrderProduct> refactorOrderProducts(String[] products) {
+//        ArrayList<OrderProduct> orderProducts = new ArrayList<>();
+//        for (String p : products) {
+//            String[] productsSplit = p.split(":");
+//            Product product = selectProductById(Integer.parseInt(productsSplit[0]));
+//            orderProducts.add(new OrderProduct(product, Double.parseDouble(productsSplit[1])));
+//        }
+//        return orderProducts;
+//    }
 
     @Override
     public String toString() {

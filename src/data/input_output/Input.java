@@ -115,24 +115,24 @@ public class Input {
         return supermarkets;
     }
 
-    public static ArrayList<Order> readOrdersFile() {
-        File file = new File("database/Orders.csv");
-        ArrayList<Order> orders = new ArrayList<>();
-        ArrayList<String[]> fileData = new ArrayList<>();
-        try {
-            fileData = readFileData(file);
-        } catch (FileNotFoundException e) {
-            System.out.println("Error: No s'ha trobat l'arxiu de compres");
-            Main.run();
-        }
-        for (String[] line : fileData) {
-            String identifier = line[0];
-            String date = line[1];
-            Customer customer = CustomerManager.selectCustomerById(Integer.parseInt(line[2]));
-            Supermarket supermarket = SupermarketManager.selectSupermarketById(Integer.parseInt(line[3]));
-            HashMap<Product, Double> orderProducts = Product.refactorProductIdInProducts(line[4]);
-            orders.add(new Order(identifier, date, customer, supermarket, orderProducts));
-        }
-        return orders;
-    }
+//    public static ArrayList<Order> readOrdersFile() {
+//        File file = new File("database/Orders.csv");
+//        ArrayList<Order> orders = new ArrayList<>();
+//        ArrayList<String[]> fileData = new ArrayList<>();
+//        try {
+//            fileData = readFileData(file);
+//        } catch (FileNotFoundException e) {
+//            System.out.println("Error: No s'ha trobat l'arxiu de compres");
+//            Main.run();
+//        }
+//        for (String[] line : fileData) {
+//            String identifier = line[0];
+//            String date = line[1];
+//            Customer customer = CustomerManager.selectCustomerById(Integer.parseInt(line[2]));
+//            Supermarket supermarket = SupermarketManager.selectSupermarketById(Integer.parseInt(line[3]));
+//            HashMap<Product, Double> orderProducts = Product.refactorProductIdInProducts(line[4]);
+//            orders.add(new Order(identifier, date, customer, supermarket, orderProducts));
+//        }
+//        return orders;
+//    }
 }

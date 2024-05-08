@@ -76,7 +76,7 @@ public class CustomerManager {
     }
 
     static int getNewIdentifier() {
-        return customers.getLast().getIdentifier() + 1;
+        return customers.getLast().getId() + 1;
     }
 
     public static Customer createNewCustomer() {
@@ -102,7 +102,7 @@ public class CustomerManager {
         int id = DataInput.getValidInteger("Introdueix l'ID del client");
         DataInput.handleExit(String.valueOf(id));
         for (Customer c : Input.readCustomersFile()) {
-            if (c.getIdentifier() == id) {
+            if (c.getId() == id) {
                 System.out.println("Client trobat amb ID: " + id);
                 return c;
             }
@@ -125,7 +125,7 @@ public class CustomerManager {
 
     public static Customer selectCustomerById(int id) {
         for (Customer c : customers) {
-            if (id == c.getIdentifier()) {
+            if (id == c.getId()) {
                 return c;
             }
         }
@@ -138,7 +138,7 @@ public class CustomerManager {
         int id = DataInput.getValidInteger("Introdueix l'ID de l'usuari");
         DataInput.handleExit(String.valueOf(id));
         for (Customer c : customers) {
-            if (c.getIdentifier() == id) {
+            if (c.getId() == id) {
                 return c;
             }
         }
@@ -159,7 +159,7 @@ public class CustomerManager {
             Main.run();
         } else {
             if (DataInput.confirmAction()) {
-                customers.removeIf(c -> c.getIdentifier() == customer.getIdentifier());
+                customers.removeIf(c -> c.getId() == customer.getId());
                 try {
                     Output.reWriteCustomersFile(customers);
                     System.out.println("S'ha eliminat el client");
