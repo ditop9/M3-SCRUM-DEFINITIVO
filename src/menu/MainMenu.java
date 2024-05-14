@@ -1,6 +1,6 @@
 package menu;
 
-import static classes.Admin.login;
+import static classes.admin.Admin.login;
 
 public class MainMenu {
     public static void displayMenu() {

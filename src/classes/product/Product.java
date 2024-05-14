@@ -1,6 +1,4 @@
-package classes;
-
-import data.input_output.Input;
+package classes.product;
 
 import java.util.ArrayList;
 
@@ -11,14 +9,14 @@ public class Product {
     private final int id;
     private final String name;
     private final double price;
-    private final boolean weight; // Indica si el producte es ven per pes o per unitat
+    private final boolean weighted; // Indica si el producte es ven per pes o per unitat
 
     // Constructor
     public Product(int identifier, String name, double price, boolean weight) {
         this.id = identifier;
         this.name = name;
         this.price = price;
-        this.weight = weight;
+        this.weighted = weight;
     }
 
     // Getters
@@ -30,8 +28,12 @@ public class Product {
         return name;
     }
 
-    public boolean isWeight() {
-        return weight;
+    public double getPrice() {
+        return price;
+    }
+
+    public boolean isWeighted() {
+        return weighted;
     }
 
     /**

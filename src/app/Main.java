@@ -1,14 +1,11 @@
 package app;
 
-import classes.*;
+import classes.admin.Admin;
 import data.DataInput;
 import menu.*;
 
-import java.sql.Connection;
-
 public class Main {
-    private static final Connection con = SQLConnection.getConnection();
-    // Usuari admin comença null al principi per tal que no tingui permisos d'administrador
+    // Usuari classes.admin comença null al principi per tal que no tingui permisos d'administrador
     public static Admin admin = new Admin();
 
     public static void main(String[] args) {

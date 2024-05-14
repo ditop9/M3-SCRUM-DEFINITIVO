@@ -1,10 +1,10 @@
-package manager;
+package classes.product;
 
 import app.Main;
-import classes.Admin;
 import data.DataInput;
 
-public class AdminManager {
+public class ProductManager {
+    private static final ProductDAO db = new ProductDAO();
     public static void run() {
         int option;
         do {
@@ -16,26 +16,33 @@ public class AdminManager {
 
     public static void displayMenu() {
         System.out.println("""
-                _______________________________________
-                |  ==== OPCIONS D'ADMINISTRADOR ====  |
-                |_____________________________________|
-                | 1. AFEGIR ADMINISTRADOR             |
-                | 2. ELIMINAR ADMINISTRADOR           |
-                | 0. TORNAR AL MENÚ PRINCIPAL         |
-                |_____________________________________|""");
+                _________________________________
+                |  ==== MENÚ DE PRODUCTES ====  |
+                |_______________________________|
+                | 1. AFEGIR PRODUCTE            |
+                | 2. CERCAR PRODUCTE PER ID     |
+                | 3. MOSTRAR TOTS ELS PRODUCTES |
+                | 4. ELIMINAR PRODUCTE          |
+                | 4. ACTUALITZAR PRODUCTE       |
+                | 0. TORNAR AL MENÚ PRINCIPAL   |
+                |_______________________________|""");
     }
 
     public static void handleOption(int option) {
         switch (option) {
             case 1:
-                Admin admin = Admin.createNewAdmin();
-                if (admin.create()) {
-                    System.out.println("S'ha introduït el nou usuari Admin.");
-                } else System.out.println("Error: no s'ha pogut introduïr l'usuari Admin.");
+
                 break;
             case 2:
-                Admin.delete();
+
                 break;
+            case 3:
+
+                break;
+            case 4:
+
+            case 5:
+
             case 0:
                 System.out.println("Tornant al menú principal");
                 Main.run();
@@ -45,4 +52,5 @@ public class AdminManager {
                 break;
         }
     }
+
 }

@@ -1,8 +1,6 @@
-package manager;
+package classes.order;
 
 import app.Main;
-import classes.Customer;
-import classes.Order;
 import data.DataInput;
 
 // En desenvolupament
@@ -29,7 +27,7 @@ public class OrderManager {
     public static void handleOption(int option) {
         switch (option) {
             case 1:
-                Order order = Order.createNewOrder();
+//                Order order = Order.createNewOrder();
                 break;
             case 0:
                 System.out.println("Tornant al menú principal");

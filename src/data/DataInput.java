@@ -1,6 +1,6 @@
 package data;
 
-import classes.Admin;
+import classes.admin.Admin;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

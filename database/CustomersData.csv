@@ -1,4 +1,4 @@
-ID,DNI,Nom,Edat
+ID,DNI,Nom,,Cognom,Edat,Telèfon,Email
 1,12983476G,Pablo,30
 2,74649287H,Maria,24
 3,38628493J,Marc,28

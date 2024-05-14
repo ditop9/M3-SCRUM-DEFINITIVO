@@ -1,10 +1,11 @@
 package menu;
 
 import app.Main;
-import classes.Admin;
-import manager.AdminManager;
-import manager.CustomerManager;
-import manager.OrderManager;
+import classes.admin.Admin;
+import classes.admin.AdminManager;
+import classes.customer.CustomerManager;
+import classes.order.OrderManager;
+import classes.supermarket.SupermarketManager;
 
 public class LoggedMenu {
     public static void displayMenu() {
@@ -30,7 +31,7 @@ public class LoggedMenu {
                 OrderManager.run();
                 break;
             case 3:
-
+                SupermarketManager.run();
                 break;
             case 4:
                 AdminManager.run();

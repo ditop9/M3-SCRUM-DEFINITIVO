@@ -5,9 +5,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b6005db-1096-4cfd-b136-578c7a1a7f00" name="Changes" comment="1">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/admin/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/admin/AdminDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/admin/AdminManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/customer/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/customer/CustomerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/customer/CustomerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/order/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/order/OrderDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/product/ProductDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/product/ProductManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/classes/supermarket/SupermarketDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c5b82f20-e0f4-4421-993d-66a7fd9abc6d.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c5b82f20-e0f4-4421-993d-66a7fd9abc6d/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M03-scrum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/M03-scrum.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Supermarket" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/AdminData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/AdminData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/CustomersData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/CustomersData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Orders.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/Orders.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/ProductsData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/ProductsData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/SupermarketsData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/SupermarketsData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/app/SQLConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/classes/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/classes/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/classes/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/classes/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/classes/Supermarket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/data/DataInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/M03-scrum/data/DataInput.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/data/input_output/Input.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/M03-scrum/data/input_output/Input.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/data/input_output/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/M03-scrum/data/input_output/Output.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/manager/SupermarketManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/menu/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/M03-scrum/menu/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/SQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/SQLConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/DAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/product/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Supermarket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/supermarket/Supermarket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/DataInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DataInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/input_output/Input.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/input_output/Output.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/AdminManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/CustomerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/order/OrderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manager/SupermarketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/supermarket/SupermarketManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/LoggedMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/LoggedMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/MainMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +77,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Python Script" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -29,34 +90,35 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2e5OuCBQakcAgy6jdYQWAjMYqj6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/diego/IdeaProjects/M03-scrum/Supermarket.sqlite&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/46948549y/IdeaProjects/M03-SCRUM-FINAL",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\diego\IdeaProjects\M03-scrum\src\database" />
@@ -101,7 +163,9 @@
       <workItem from="1715093932903" duration="206000" />
       <workItem from="1715094162591" duration="847000" />
       <workItem from="1715095046670" duration="1650000" />
-      <workItem from="1715179919727" duration="2251000" />
+      <workItem from="1715179919727" duration="6093000" />
+      <workItem from="1715333518402" duration="3162000" />
+      <workItem from="1715346523694" duration="7491000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -111,7 +175,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715181842336</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1">
+      <option name="closed" value="true" />
+      <created>1715182203123</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715182203123</updated>
+    </task>
+    <task id="LOCAL-00003" summary="1">
+      <option name="closed" value="true" />
+      <created>1715182393863</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715182393863</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
