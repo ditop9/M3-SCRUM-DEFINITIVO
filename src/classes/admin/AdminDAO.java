@@ -14,7 +14,7 @@ public class AdminDAO implements DAO<Admin> {
     private static final Connection con = SQLConnection.getConnection();
 
     public static int verifyName(String name) {
-        String query = "SELECT admin_id FROM Admins WHERE name = ?";
+        String query = "SELECT ID FROM Admins WHERE name = ?";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setString(1, name);
             ResultSet result = statement.executeQuery();
@@ -26,7 +26,7 @@ public class AdminDAO implements DAO<Admin> {
     }
 
     public static boolean verifyPassword(int id, String password) {
-        String query = "SELECT password FROM Admins WHERE admin_id = ?";
+        String query = "SELECT password FROM Admins WHERE ID = ?";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
@@ -39,7 +39,7 @@ public class AdminDAO implements DAO<Admin> {
 
     static int getNewIdentifier() {
         try (Statement statement = con.createStatement()) {
-            ResultSet result = statement.executeQuery("SELECT MAX(admin_id) FROM Admins");
+            ResultSet result = statement.executeQuery("SELECT MAX(ID) FROM Admins");
             return result.getInt(1) + 1;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -63,7 +63,7 @@ public class AdminDAO implements DAO<Admin> {
 
     @Override
     public Admin searchById(int id) {
-        String query = "SELECT * FROM Admins WHERE admin_id = ?";
+        String query = "SELECT * FROM Admins WHERE ID = ?";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
@@ -76,7 +76,7 @@ public class AdminDAO implements DAO<Admin> {
 
     @Override
     public boolean create(Admin admin) {
-        String query = "INSERT INTO Admins (admin_id, name, password) VALUES (?, ?, ?)";
+        String query = "INSERT INTO Admins (ID, name, password) VALUES (?, ?, ?)";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(1, admin.getId());
             statement.setString(2, admin.getName());
@@ -90,7 +90,7 @@ public class AdminDAO implements DAO<Admin> {
 
     @Override
     public boolean delete(int id) {
-        String query = "DELETE FROM Admins WHERE admin_id = ?";
+        String query = "DELETE FROM Admins WHERE ID = ?";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(1, id);
             return statement.executeUpdate() > 0;
@@ -102,7 +102,7 @@ public class AdminDAO implements DAO<Admin> {
 
     @Override
     public boolean update(Admin updatedAdmin, int id) {
-        String query = "UPDATE Admins SET name = ?, password = ? WHERE admin_id = ?";
+        String query = "UPDATE Admins SET name = ?, password = ? WHERE ID = ?";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(3, id);
             statement.setString(1, updatedAdmin.getName());

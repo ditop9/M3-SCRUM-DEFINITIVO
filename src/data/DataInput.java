@@ -2,6 +2,7 @@ package data;
 
 import classes.admin.Admin;
 
+import java.awt.desktop.PreferencesEvent;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -28,11 +29,14 @@ public interface DataInput {
     static int getValidInteger(String message) {
         Scanner sc = new Scanner(System.in);
         do {
+            System.out.println("0 => Sortir");
             if (!message.isBlank()) {
                 System.out.println(message);
             }
             try {
-                return sc.nextInt();
+                int anInt = sc.nextInt();
+                handleExit(String.valueOf(anInt));
+                return anInt;
             } catch (InputMismatchException e) {
                 System.out.println("Error: No es tracta d'un caràcter vàlid");
                 sc.next();
@@ -43,11 +47,14 @@ public interface DataInput {
     static double getValidDouble(String message) {
         Scanner sc = new Scanner(System.in);
         do {
+            System.out.println("0 => Sortir");
             if (!message.isBlank()) {
                 System.out.println(message);
             }
             try {
-                return sc.nextDouble();
+                double aDouble = sc.nextDouble();
+                handleExit(String.valueOf(aDouble));
+                return aDouble;
             } catch (InputMismatchException e) {
                 System.out.println("Error: No es tracta d'un caràcter vàlid");
                 sc.next();
@@ -88,6 +95,25 @@ public interface DataInput {
             }
         } while (age < 18);
         return age;
+    }
+
+    static boolean getValidBoolean(String message) {
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("0 => Sortir");
+            try {
+                System.out.println(message);
+                int option = sc.nextInt();
+                if (option == 1) {
+                    return true;
+                } else if (option == 2) {
+                    return false;
+                } else System.out.println("Error: no és una opció vàlida.");
+            } catch (InputMismatchException e) {
+                System.out.println("Error: No es tracta d'un caràcter vàlid");
+                sc.next();
+            }
+        } while (true);
     }
 
     static Admin introduceUsernameForLogin(ArrayList<Admin> users) {

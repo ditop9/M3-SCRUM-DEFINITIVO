@@ -5,69 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b6005db-1096-4cfd-b136-578c7a1a7f00" name="Changes" comment="1">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/admin/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/admin/AdminDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/admin/AdminManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/customer/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/customer/CustomerDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/customer/CustomerManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/order/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/order/OrderDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/product/ProductDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/product/ProductManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/supermarket/SupermarketDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Supermarket.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c5b82f20-e0f4-4421-993d-66a7fd9abc6d.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c5b82f20-e0f4-4421-993d-66a7fd9abc6d/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M03-scrum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/M03-scrum.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supermarket" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/AdminData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/AdminData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/CustomersData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/CustomersData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Orders.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/Orders.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/ProductsData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/ProductsData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/SupermarketsData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/database/SupermarketsData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/app/SQLConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/classes/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/classes/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/classes/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/classes/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/classes/Supermarket.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/data/DataInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/M03-scrum/data/DataInput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/data/input_output/Input.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/M03-scrum/data/input_output/Input.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/data/input_output/Output.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/M03-scrum/data/input_output/Output.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/manager/SupermarketManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/menu/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/M03-scrum/menu/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/data/input_output/Input.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/data/input_output/Output.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/SQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/SQLConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Admin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Customer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/DAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/product/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Supermarket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/supermarket/Supermarket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/admin/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/admin/AdminDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/customer/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/customer/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/customer/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/customer/CustomerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/order/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/order/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/order/OrderDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/order/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/order/OrderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/product/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/product/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/product/ProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/product/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/product/ProductManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/supermarket/SupermarketDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/supermarket/SupermarketDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/DataInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DataInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/input_output/Input.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/input_output/Output.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/AdminManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/CustomerManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/order/OrderManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/manager/SupermarketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/supermarket/SupermarketManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menu/LoggedMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/LoggedMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/MainMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +62,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/46948549y/IdeaProjects/M03-SCRUM-FINAL",
+    "last_opened_file_path": "C:/Users/diego/IdeaProjects/M3-SCRUM",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -120,6 +80,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\diego\IdeaProjects\M3-SCRUM" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\diego\IdeaProjects\M03-scrum\src\database" />
     </key>
@@ -166,6 +129,7 @@
       <workItem from="1715179919727" duration="6093000" />
       <workItem from="1715333518402" duration="3162000" />
       <workItem from="1715346523694" duration="7491000" />
+      <workItem from="1715807445967" duration="10545000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />

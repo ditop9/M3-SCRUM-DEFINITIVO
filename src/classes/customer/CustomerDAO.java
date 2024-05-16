@@ -15,7 +15,7 @@ public class CustomerDAO implements DAO<Customer> {
 
     public static int getNewIdentifier() {
         try (Statement statement = con.createStatement()) {
-            ResultSet result = statement.executeQuery("SELECT MAX(customer_id) FROM Customers");
+            ResultSet result = statement.executeQuery("SELECT MAX(ID) FROM Customers");
             return result.getInt(1) + 1;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -51,7 +51,7 @@ public class CustomerDAO implements DAO<Customer> {
 
     @Override
     public Customer searchById(int id) {
-        String query = "SELECT * FROM Customers WHERE customer_id = ?";
+        String query = "SELECT * FROM Customers WHERE ID = ?";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
@@ -78,7 +78,7 @@ public class CustomerDAO implements DAO<Customer> {
 
     @Override
     public boolean delete(int id) {
-        String query = "DELETE FROM Customers WHERE customer_id = ?";
+        String query = "DELETE FROM Customers WHERE ID = ?";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(1, id);
             return statement.executeUpdate() > 0;
@@ -90,7 +90,7 @@ public class CustomerDAO implements DAO<Customer> {
 
     @Override
     public boolean update(Customer updatedCustomer, int id) {
-        String query = "UPDATE Customers SET dni = ?, name = ?, age = ? WHERE customer_id = ?";
+        String query = "UPDATE Customers SET dni = ?, first_name = ?, age = ? WHERE ID = ?";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(4, id);
             statement.setString(1, updatedCustomer.getDni());

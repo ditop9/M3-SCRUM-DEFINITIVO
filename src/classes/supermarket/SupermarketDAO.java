@@ -41,7 +41,7 @@ public class SupermarketDAO implements DAO<Supermarket> {
 
     @Override
     public Supermarket searchById(int id) {
-        String query = "SELECT * FROM Supermarkets WHERE supermarket_id = ?";
+        String query = "SELECT * FROM Supermarkets WHERE ID = ?";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();

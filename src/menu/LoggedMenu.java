@@ -5,6 +5,7 @@ import classes.admin.Admin;
 import classes.admin.AdminManager;
 import classes.customer.CustomerManager;
 import classes.order.OrderManager;
+import classes.product.ProductManager;
 import classes.supermarket.SupermarketManager;
 
 public class LoggedMenu {
@@ -17,6 +18,7 @@ public class LoggedMenu {
                 | * 2. GESTIÓ DE COMPRES                  |
                 | * 3. GESTIÓ DE SUPERMERCATS             |
                 | * 4. OPCIONS D'ADMINISTRADOR            |
+                | * 5. OPCIONS DE PRODUCTES               |
                 | * 5. TANCAR SESSIÓ                      |
                 | * 0. SORTIR                             |
                 |_________________________________________|""");
@@ -37,6 +39,9 @@ public class LoggedMenu {
                 AdminManager.run();
                 break;
             case 5:
+                ProductManager.run();
+                break;
+            case 6:
                 Admin.logout();
                 break;
             case 0:

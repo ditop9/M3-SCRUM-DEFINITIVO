@@ -3,20 +3,21 @@ package classes.order;
 import classes.customer.CustomerManager;
 import classes.product.Product;
 import classes.customer.Customer;
+import classes.product.ProductManager;
 import classes.supermarket.SupermarketManager;
 import data.DataInput;
-import data.input_output.Input;
 
 import classes.supermarket.Supermarket;
 
 import java.util.*;
 
 public class Order {
-    private int id;
-    private String date;
-    private Customer customer;
-    private Supermarket supermarket;
-    private HashMap<Product, Integer> orderProducts = new HashMap<>();
+    private final int id;
+    private final String date;
+    private final Customer customer;
+    private final Supermarket supermarket;
+    private double price;
+    private HashMap<Product, Double> orderProducts = new HashMap<>();
 
     public int getId() {
         return id;
@@ -25,7 +26,6 @@ public class Order {
     public Customer getCustomer() {
         return customer;
     }
-
     public Supermarket getSupermarket() {
         return supermarket;
     }
@@ -34,90 +34,81 @@ public class Order {
         return date;
     }
 
-    public Order() {
+    public double getPrice() {
+        return price;
     }
 
-    public Order(int identifier, Customer customer, Supermarket supermarket, String date) {
+    public HashMap<Product, Double> getOrderProducts() {
+        return orderProducts;
+    }
+
+    public Order(int identifier, Customer customer, Supermarket supermarket, String date, double price) {
         this.id = identifier;
         this.customer = customer;
         this.supermarket = supermarket;
         this.date = date;
+        this.price = price;
+        this.orderProducts = new OrderDAO().searchProductsFromOrder(id);
+    }
+
+    public Order(int identifier, Customer customer, Supermarket supermarket, String date, double price, HashMap<Product, Double> orderProducts) {
+        this.id = identifier;
+        this.customer = customer;
+        this.supermarket = supermarket;
+        this.date = date;
+        this.price = price;
+        this.orderProducts = orderProducts;
     }
 
     public static Order createNewOrder() {
+        int identifier = OrderDAO.getNewIdentifier();
         String date = DataInput.getValidDate();
         Customer customer = CustomerManager.searchCustomerById();
-        if (customer != null) {
-            Supermarket supermarket = SupermarketManager.searchSupermarketById();
-            if (supermarket != null) {
-                HashMap<Product, Double> products = chooseProductsList();
-                int id = OrderDAO.getNewIdentifier();
-                return new Order(id, customer, supermarket, date);
-            }
-        }
-        return null;
-    }
-
-    public static HashMap<Product, Double> chooseProductsList() {
-        HashMap<Product, Double> chosenProducts = new HashMap<>();
-        int identifier;
+        Supermarket supermarket = SupermarketManager.searchSupermarketById();
+        HashMap<Product, Double> orderProducts = new HashMap<>();
+        int id;
+        double price = 0;
         do {
-            System.out.println("0 => Finalitzar");
-            Input.showProducts();
-            identifier = DataInput.getValidInteger("Introdueix el número identificador del producte");
-            if (identifier != 0) {
-                Product product = chooseProduct(identifier);
+            ProductManager.listAll();
+            System.out.println("-1 => Finalitzar compra");
+            id = DataInput.getValidInteger("Introdueix l'ID del producte a introduïr.");
+            if (id != -1) {
+                Product product = ProductManager.searchById(id);
                 if (product != null) {
-                    System.out.println("0 => Cancel·lar producte");
                     double quantity;
                     if (product.isWeighted()) {
                         quantity = DataInput.getValidDouble("Introdueix el pes comprat de " + product.getName());
                     } else {
-                        quantity = DataInput.getValidInteger("Introdueix la quantitat comprada de " + product.getName());
+                        quantity = DataInput.getValidInteger("Introdueix la quantitat comprda de " + product.getName());
                     }
                     if (quantity > 0) {
-                        if (product.isWeighted()) {
-                            System.out.println("S'ha afegit " + quantity + "Kg de " + product.getName());
-                        } else System.out.println("S'ha afegit " + quantity + " unitats de " + product.getName());
-                        chosenProducts.put(product, quantity);
-                    } else System.out.println("No s'ha afegit el producte");
-                } else System.out.println("Error: Producte no trobat");
+                        price += product.getPrice() * quantity;
+                        orderProducts.put(product, quantity);
+                    } else {
+                        System.out.println("Error: no es pot afegir quantitat 0 o negativa.");
+                    }
+                } else {
+                    System.out.println("Error: No s'ha trobat cap producte amb l'ID proporcionat.");
+                }
             }
-        } while (identifier != 0);
-        return chosenProducts;
+        } while (id != -1);
+        return new Order(identifier, customer, supermarket, date, price, orderProducts);
     }
 
-    static Product chooseProduct(int identifier) {
-        ArrayList<Product> productsList = Input.readProductsFile();
-        for (Product p : productsList) {
-            if (identifier == p.getId()) {
-                return p;
-            }
+    public void printRecipe() {
+        System.out.println("_________________________________");
+        System.out.println("TICKET DE COMPRA:");
+        System.out.println("ID de la compra " + id);
+        System.out.println("Client " + customer.getName());
+        System.out.println("Supermercat " + supermarket.getName());
+        System.out.println("Data " + date);
+        System.out.println("Preu total " + price);
+        System.out.println("Productes comprats:");
+        for (Map.Entry<Product, Double> entry : orderProducts.entrySet()) {
+            Product product = entry.getKey();
+            double quantity = entry.getValue();
+            System.out.println("- " + product.getName() + "  " + quantity + "  " + product.getPrice() * quantity + "€");
         }
-        return null;
-    }
-
-//    void showProducts(StringBuilder sb) {
-//        for (Map.Entry<Product, Double> entry : productsOrder.entrySet()) {
-//            if (entry.getKey().isWeight()) {
-//                sb.append(entry.getKey().toStringTicket()).append(" Quantitat: ").append(entry.getValue()).append("Kg\n");
-//            } else {
-//                sb.append(entry.getKey().toStringTicket()).append(" Quantitat: ").append(entry.getValue()).append("\n");
-//            }
-//        }
-//    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n================================")
-                .append("\nOrder: ")
-                .append(id)
-                .append("\nData: ").append(date)
-                .append("\nClient: ").append(customer.getName())
-                .append("\nSupermercat: ").append(supermarket.getName())
-                .append("\nProductes:\n");
-//        showProducts(sb);
-        return sb.toString();
+        System.out.println("_________________________________");
     }
 }

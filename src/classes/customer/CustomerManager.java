@@ -86,7 +86,6 @@ public class CustomerManager {
 
     private static void searchCustomerByName() {
         List<Customer> customers = db.read();
-        System.out.println("0 => Sortir");
         String name = DataInput.getValidString("Introdueix el nom del client a buscar");
         for (Customer c : customers) {
             if (c.getName().equals(name)) {

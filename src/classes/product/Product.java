@@ -1,5 +1,7 @@
 package classes.product;
 
+import data.DataInput;
+
 import java.util.ArrayList;
 
 /**
@@ -36,41 +38,13 @@ public class Product {
         return weighted;
     }
 
-    /**
-     * Mètode que refactoritza una línia de productes amb els seus identificadors i quantitats.
-     *
-     * @param productsIdLine La línia de productes en format "id:quantitat'id:quantitat'..."
-     * @return Una llista de productes de la compra amb les seves quantitats corresponents.
-     */
-//    public static ArrayList<OrderProduct> refactorProductIdInProducts(String productsIdLine) {
-//        String[] productsIdAndQuantity = productsIdLine.split("'");
-//        return refactorOrderProducts(productsIdAndQuantity);
-//    }
-
-    /**
-     * Mètode que selecciona un producte pel seu identificador.
-     *
-     * @param id L'identificador del producte a seleccionar.
-     * @return El producte corresponent a l'identificador, o null si no es troba.
-     */
-    public static Product selectProductById(int id) {
-        ArrayList<Product> products = Input.readProductsFile();
-        for (Product p : products) {
-            if (id == p.getId()) {
-                return p;
-            }
-        }
-        return null;
+    public static Product createNewProduct()  {
+        int identifier = ProductDAO.getNewIdentifier();
+        String name = DataInput.getValidString("Introdueix el nom del nou producte.");
+        double price = DataInput.getValidDouble("Introdueix el preu del nou producte");
+        boolean weighted = DataInput.getValidBoolean("1 si el producte és de pes | 2 si el producte no és de pes");
+        return new Product(identifier, name, price, weighted);
     }
-//    public static ArrayList<OrderProduct> refactorOrderProducts(String[] products) {
-//        ArrayList<OrderProduct> orderProducts = new ArrayList<>();
-//        for (String p : products) {
-//            String[] productsSplit = p.split(":");
-//            Product product = selectProductById(Integer.parseInt(productsSplit[0]));
-//            orderProducts.add(new OrderProduct(product, Double.parseDouble(productsSplit[1])));
-//        }
-//        return orderProducts;
-//    }
 
     @Override
     public String toString() {
