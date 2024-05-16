@@ -1,5 +1,6 @@
 package classes.order;
 
+import classes.customer.Customer;
 import classes.customer.CustomerDAO;
 import classes.product.Product;
 import classes.product.ProductDAO;
@@ -21,8 +22,8 @@ public class OrderDAO implements DAO<Order> {
 
     private Order createNewOrderFromQuery(ResultSet rs) {
         try {
-        return new Order(rs.getInt(1), new CustomerDAO().searchById(rs.getInt(2)),
-                new SupermarketDAO().searchById(rs.getInt(3)), rs.getString(4), rs.getDouble(5));
+            return new Order(rs.getInt(1), new CustomerDAO().searchById(rs.getInt(2)),
+                    new SupermarketDAO().searchById(rs.getInt(3)), rs.getString(4), rs.getDouble(5));
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
@@ -136,6 +137,22 @@ public class OrderDAO implements DAO<Order> {
                 orderProducts.put(product, rs.getDouble(2));
             }
             return orderProducts;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public List<Order> searchOrdersByCustomer(Customer customer) {
+        String query = "SELECT * FROM Orders WHERE customer_id = ?";
+        try (PreparedStatement statement = con.prepareStatement(query)) {
+            List<Order> orders = new ArrayList<>();
+            statement.setInt(1, customer.getId());
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                orders.add(createNewOrderFromQuery(rs));
+            }
+            return orders;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;

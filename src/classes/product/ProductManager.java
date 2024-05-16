@@ -22,7 +22,7 @@ public class ProductManager {
                 _________________________________
                 |  ==== MENÚ DE PRODUCTES ====  |
                 |_______________________________|
-                | 3. MOSTRAR TOTS ELS PRODUCTES |
+                | 1. MOSTRAR TOTS ELS PRODUCTES |
                 | 2. CERCAR PRODUCTE PER ID     |
                 | 3. AFEGIR PRODUCTE            |
                 | 4. ELIMINAR PRODUCTE          |

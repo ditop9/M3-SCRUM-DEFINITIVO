@@ -1,12 +1,14 @@
 package classes.customer;
 
 import app.Main;
+import classes.register.Register;
 import data.DataInput;
 
 import java.util.List;
 
 public class CustomerManager {
     private static final CustomerDAO db = new CustomerDAO();
+
     public static void run() {
         int option;
         do {
@@ -22,10 +24,11 @@ public class CustomerManager {
                 |  ==== MENÚ DE CLIENTS ====  |
                 |_____________________________|
                 | 1. AFEGIR CLIENT            |
-                | 2. ELIMINAR CLIENT          |
-                | 3. MOSTRAR TOTS ELS CLIENTS |
-                | 4. CERCAR CLIENT PER ID     |
-                | 5. CERCAR CLIENT PER NOM    |
+                | 2. MOSTRAR TOTS ELS CLIENTS |
+                | 3. CERCAR CLIENT PER ID     |
+                | 4. CERCAR CLIENTS PER NOM   |
+                | 5. ELIMINAR CLIENT          |
+                | 6. ACTUALITZAR CLIENT       |
                 | 0. TORNAR AL MENÚ PRINCIPAL |
                 |_____________________________|""");
     }
@@ -36,15 +39,20 @@ public class CustomerManager {
                 addNewCustomer();
                 break;
             case 2:
-                deleteCustomer();
-                break;
-            case 3:
                 listCustomers();
                 break;
-            case 4:
+            case 3:
                 searchCustomerById();
-            case 5:
+                break;
+            case 4:
                 searchCustomerByName();
+                break;
+            case 5:
+                deleteCustomer();
+                break;
+            case 6:
+                updateCustomer();
+                break;
             case 0:
                 System.out.println("Tornant al menú principal");
                 Main.run();
@@ -66,12 +74,12 @@ public class CustomerManager {
         Customer customer = Customer.createNewCustomer();
         if (db.create(customer)) {
             System.out.println("S'ha introduït el nou Client.");
+            Register.createNewRegister("Nou client afegit: ID: " + customer.getId() + " Nom: " + customer.getName());
         } else System.out.println("Error: no s'ha pogut introduïr el nou Client.");
     }
 
     public static Customer searchCustomerById() {
         listCustomers();
-        System.out.println("0 => Sortir");
         int id = DataInput.getValidInteger("Introdueix l'ID del client");
         DataInput.handleExit(String.valueOf(id));
         Customer customer = db.searchById(id);
@@ -96,13 +104,24 @@ public class CustomerManager {
 
     public static void deleteCustomer() {
         listCustomers();
-        System.out.println("0 => Sortir");
         int id = DataInput.getValidInteger("Introdueix l'ID del Client a eliminar.");
         Customer customer = db.searchById(id);
         if (customer != null) {
             if (db.delete(id)) {
                 System.out.println("S'ha eliminat el Client correctament.");
+                Register.createNewRegister("Client eliminat: ID: " + customer.getId() + " Nom: " + customer.getName());
             } else System.out.println("No s'ha pogut eliminar el Client.");
         } else System.out.println("Error: no s'ha trobat el Client.");
+    }
+
+    public static void updateCustomer() {
+        Customer customer = searchCustomerById();
+        if (customer != null) {
+            Customer updatedCustomer = Customer.createNewCustomer();
+            if (db.update(updatedCustomer, customer.getId())) {
+                System.out.println("S'ha actualitzat correctament el client.");
+                Register.createNewRegister("Client actualitzat: ID: " + customer.getId() + " Nom: " + customer.getName());
+            } else System.out.println("Error: no s'ha pogut actualitzar el client.");
+        } else System.out.println("Error: no s'ha trobat el client.");
     }
 }

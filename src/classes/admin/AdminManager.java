@@ -25,7 +25,6 @@ public class AdminManager {
                 | 1. AFEGIR ADMINISTRADOR             |
                 | 2. ACTUALITZAR ADMINISTRADOR        |
                 | 3. ELIMINAR ADMINISTRADOR           |
-                | 4. MOSTRAR ADMINISTRADORS           |
                 | 0. TORNAR AL MENÚ PRINCIPAL         |
                 |_____________________________________|""");
     }
@@ -40,9 +39,6 @@ public class AdminManager {
                 break;
             case 3:
                 deleteAdmin();
-                break;
-            case 4:
-                listAdmins();
                 break;
             case 0:
                 System.out.println("Tornant al menú principal");

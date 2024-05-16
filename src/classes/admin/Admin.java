@@ -1,6 +1,7 @@
 package classes.admin;
 
 
+import classes.register.Register;
 import data.DataInput;
 import app.Main;
 
@@ -52,11 +53,13 @@ public class Admin {
                 Main.admin.setId(id);
                 Main.admin.setName(name);
                 Main.admin.setPassword(password);
+                Register.createNewRegister("Login");
             } else System.out.println("Error: contrassenya no vàlida.");
         } else System.out.println("Error: no es troba l'usuari.");
     }
 
     public static void logout() {
+        Register.createNewRegister("Logout");
         Main.admin = new Admin();
     }
 

@@ -46,6 +46,7 @@ public class AdminDAO implements DAO<Admin> {
             return -1;
         }
     }
+
     @Override
     public List<Admin> read() {
         try (Statement statement = con.createStatement()) {

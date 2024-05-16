@@ -87,11 +87,6 @@ public class ProductDAO implements DAO<Product> {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
-        } finally {
-            try {
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
         }
     }
 

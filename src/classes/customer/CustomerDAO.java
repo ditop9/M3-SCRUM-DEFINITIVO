@@ -64,14 +64,18 @@ public class CustomerDAO implements DAO<Customer> {
 
     @Override
     public boolean create(Customer customer) {
-        String query = "INSERT INTO Customers () VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO Customers (ID, dni, first_name, last_name, age, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(1, customer.getId());
             statement.setString(2, customer.getDni());
             statement.setString(3, customer.getName());
-            statement.setInt(4, customer.getAge());
-            return true;
+            statement.setString(4, customer.getLastName());
+            statement.setInt(5, customer.getAge());
+            statement.setInt(6, customer.getPhone());
+            statement.setString(7, customer.getEmail());
+            return statement.executeUpdate() > 0;
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return false;
         }
     }

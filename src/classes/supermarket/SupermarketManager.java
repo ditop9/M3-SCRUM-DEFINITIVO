@@ -1,6 +1,7 @@
 package classes.supermarket;
 
 import app.Main;
+import classes.register.Register;
 import data.DataInput;
 
 import java.util.List;
@@ -25,6 +26,8 @@ public class SupermarketManager {
                 | * 1. AFEGIR SUPERMERCAT            |
                 | * 2. ELIMINAR SUPERMERCAT          |
                 | * 3. MOSTRAR TOTS ELS SUPERMERCATS |
+                | * 4. ELIMINAR SUPERMERCAT          |
+                | * 5. ACTUALITZAR SUPERMERCAT       |
                 | * 0. TORNAR AL MENÚ PRINCIPAL      |
                 |____________________________________|""");
     }
@@ -38,6 +41,12 @@ public class SupermarketManager {
                 break;
             case 3:
                 listSupermarkets();
+                break;
+            case 4:
+                deleteSupermarket();
+                break;
+            case 5:
+                updateSupermarket();
                 break;
             case 0:
                 System.out.println("Tornant al menú principal");
@@ -65,7 +74,6 @@ public class SupermarketManager {
 
     public static Supermarket searchSupermarketById() {
         listSupermarkets();
-        System.out.println("0 => Sortir");
         int id = DataInput.getValidInteger("Introdueix l'ID del supermercat.");
         DataInput.handleExit(String.valueOf(id));
         Supermarket supermarket = db.searchById(id);
@@ -75,6 +83,28 @@ public class SupermarketManager {
         } else {
             System.out.println("Error: no s'ha trobat el supermercat.");
             return null;
+        }
+    }
+
+    private static void deleteSupermarket() {
+        Supermarket supermarket = searchSupermarketById();
+        if (supermarket != null) {
+            if (db.delete(supermarket.getId())) {
+                System.out.println("S'ha eliminat el supermercat.");
+                Register.createNewRegister("Supermercat eliminat: ID: " + supermarket.getId() + " Nom: " + supermarket.getName());
+            } else System.out.println("Error: no s'ha pogut eliminar el supermercat.");
+        }
+    }
+
+    private static void updateSupermarket() {
+        Supermarket supermarket = searchSupermarketById();
+        if (supermarket != null) {
+            System.out.println("Introdueix les noves dades.");
+            Supermarket updatedSupermarket = Supermarket.createNewSupermarket();
+            if (db.update(updatedSupermarket, supermarket.getId())) {
+                System.out.println("S'ha actualitzat el supermercat.");
+                Register.createNewRegister("Supermercat actualitzat: ID: " + supermarket.getId() + " Nom: " + supermarket.getName());
+            } else System.out.println("Error: no s'ha pogut eliminar");
         }
     }
 }

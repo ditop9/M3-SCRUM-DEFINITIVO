@@ -2,16 +2,14 @@ package classes.customer;
 
 import data.DataInput;
 
-import java.sql.ResultSet;
-
 public class Customer {
-    private int id;
-    private String dni;
-    private String name;
-    private String lastName;
-    private int age;
-    private int phone;
-    private String email;
+    private final int id;
+    private final String dni;
+    private final String name;
+    private final String lastName;
+    private final int age;
+    private final int phone;
+    private final String email;
 
     public int getId() {
         return id;
@@ -25,11 +23,20 @@ public class Customer {
         return name;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public int getAge() {
         return age;
     }
 
-    public Customer() {
+    public int getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public Customer(int identifier, String dni, String name, String lastName, int edad, int phone, String email) {
@@ -41,7 +48,6 @@ public class Customer {
         this.phone = phone;
         this.email = email;
     }
-
 
 
     public static Customer createNewCustomer() {

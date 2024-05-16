@@ -2,8 +2,6 @@ package classes.product;
 
 import data.DataInput;
 
-import java.util.ArrayList;
-
 /**
  * Classe que representa un producte en el sistema.
  */
@@ -38,7 +36,7 @@ public class Product {
         return weighted;
     }
 
-    public static Product createNewProduct()  {
+    public static Product createNewProduct() {
         int identifier = ProductDAO.getNewIdentifier();
         String name = DataInput.getValidString("Introdueix el nom del nou producte.");
         double price = DataInput.getValidDouble("Introdueix el preu del nou producte");
@@ -51,9 +49,6 @@ public class Product {
         return "ID " + id +
                 " Nom " + name +
                 " Preu " + price;
-    }
-    public String toStringTicket() {
-        return name + ". Preu: " + price;
     }
 }
 

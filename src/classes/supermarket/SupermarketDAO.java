@@ -14,7 +14,7 @@ public class SupermarketDAO implements DAO<Supermarket> {
     private final static Connection con = SQLConnection.getConnection();
 
     static int getNewIdentifier() {
-        try (Statement statement = con.createStatement();) {
+        try (Statement statement = con.createStatement()) {
             ResultSet rs = statement.executeQuery("SELECT MAX(ID) FROM Supermarkets");
             return rs.getInt(1) + 1;
         } catch (Exception e) {

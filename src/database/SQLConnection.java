@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 
 public class SQLConnection {
     private static Connection con;
+
     public static Connection getConnection() {
         if (con == null) {
             try {

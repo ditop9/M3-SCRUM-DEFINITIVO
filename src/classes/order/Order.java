@@ -16,8 +16,8 @@ public class Order {
     private final String date;
     private final Customer customer;
     private final Supermarket supermarket;
-    private double price;
-    private HashMap<Product, Double> orderProducts = new HashMap<>();
+    private final double price;
+    private final HashMap<Product, Double> orderProducts;
 
     public int getId() {
         return id;
@@ -26,6 +26,7 @@ public class Order {
     public Customer getCustomer() {
         return customer;
     }
+
     public Supermarket getSupermarket() {
         return supermarket;
     }

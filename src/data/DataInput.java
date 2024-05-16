@@ -1,11 +1,8 @@
 package data;
 
-import classes.admin.Admin;
-
-import java.awt.desktop.PreferencesEvent;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -70,10 +67,10 @@ public interface DataInput {
             System.out.println("Introdueix eL DNI");
             dni = sc.nextLine();
             handleExit(dni);
-            if (!validateDni(dni)) {
+            if (validateDni(dni)) {
                 System.out.println("Error: No és un format correcte de DNI. Exemple '12345678A'");
             }
-        } while (!validateDni(dni));
+        } while (validateDni(dni));
         return dni;
     }
 
@@ -81,7 +78,7 @@ public interface DataInput {
         String patron = "\\d{8}[A-HJ-NP-TV-Z]";
         Pattern pattern = Pattern.compile(patron);
         Matcher matcher = pattern.matcher(dni);
-        return matcher.matches();
+        return !matcher.matches();
     }
 
     static int getValidAge() {
@@ -116,48 +113,10 @@ public interface DataInput {
         } while (true);
     }
 
-    static Admin introduceUsernameForLogin(ArrayList<Admin> users) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("0 => Sortir");
-        System.out.println("Introdueix el nom d'usuari");
-        String username = sc.nextLine();
-        handleExit(username);
-        Admin user = validateUsername(users, username);
-        if (user == null) {
-            System.out.println("Error: No és un usuari correcte");
-            Main.run();
-        }
-        return user;
-    }
-
-    static Admin validateUsername(ArrayList<Admin> users, String username) {
-        for (Admin u : users) {
-            if (username.equals(u.getName())) {
-                return u;
-            }
-        }
-        return null;
-    }
-
-    static void introducePasswordForLogin(Admin user) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("0 => Sortir");
-        System.out.println("Introdueix la contrasenya");
-        String password = sc.nextLine();
-        handleExit(password);
-        if (!password.equals(user.getPassword())) {
-            System.out.println("Error: No és una contrasenya correcte");
-            Main.run();
-        }
-    }
-
-    static boolean confirmAction() {
-        Random random = new Random();
-        int randomInt = 1000 + random.nextInt(9000);
-        System.out.println("Introdueix el següent número per confirmar l'acció");
-        System.out.println(randomInt);
-        int entry = getValidInteger("");
-        return entry == randomInt;
+    static String getActualDate() {
+        LocalDateTime actualDate = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return actualDate.format(formatter);
     }
 
     static String getValidDate() {
