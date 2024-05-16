@@ -5,30 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b6005db-1096-4cfd-b136-578c7a1a7f00" name="Changes" comment="1">
-      <change afterPath="$PROJECT_DIR$/src/classes/register/Register.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/classes/register/RegisterDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Supermarket.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Supermarket.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/M03-scrum/data/DataInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/M03-scrum/data/DataInput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/admin/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/admin/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/admin/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/admin/AdminDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/admin/AdminManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/admin/AdminManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/customer/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/customer/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/customer/CustomerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/customer/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/customer/CustomerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/order/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/order/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/order/OrderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/order/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/order/OrderManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/product/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/product/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/product/ProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/product/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/product/ProductManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/supermarket/Supermarket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/supermarket/Supermarket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/supermarket/SupermarketDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/supermarket/SupermarketDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/supermarket/SupermarketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/supermarket/SupermarketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/DataInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DataInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/SQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/SQLConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/LoggedMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/LoggedMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +114,8 @@
       <workItem from="1715333518402" duration="3162000" />
       <workItem from="1715346523694" duration="7491000" />
       <workItem from="1715807445967" duration="10643000" />
-      <workItem from="1715850022275" duration="6801000" />
+      <workItem from="1715850022275" duration="7616000" />
+      <workItem from="1715866673007" duration="1557000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -165,11 +149,30 @@
       <option name="project" value="LOCAL" />
       <updated>1715818240202</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1">
+      <option name="closed" value="true" />
+      <created>1715857758792</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715857758792</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />

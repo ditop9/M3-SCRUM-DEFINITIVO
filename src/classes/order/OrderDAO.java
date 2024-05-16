@@ -102,9 +102,19 @@ public class OrderDAO implements DAO<Order> {
     @Override
     public boolean delete(int id) {
         String query = "DELETE FROM Orders WHERE ID = ?";
+        String query2 = "DELETE FROM OrderProducts WHERE order_id = ?";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(1, id);
-            return statement.executeUpdate() > 0;
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                try (PreparedStatement statement2 = con.prepareStatement(query2)) {
+                    statement2.setInt(1, id);
+                    return statement2.executeUpdate() > 0;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    return false;
+                }
+            } else return false;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;

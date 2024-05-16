@@ -19,7 +19,7 @@ public class LoggedMenu {
                 | * 3. GESTIÓ DE SUPERMERCATS             |
                 | * 4. OPCIONS D'ADMINISTRADOR            |
                 | * 5. OPCIONS DE PRODUCTES               |
-                | * 5. TANCAR SESSIÓ                      |
+                | * 6. TANCAR SESSIÓ                      |
                 | * 0. SORTIR                             |
                 |_________________________________________|""");
     }

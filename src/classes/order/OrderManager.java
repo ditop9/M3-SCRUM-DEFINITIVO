@@ -96,6 +96,7 @@ public class OrderManager {
     }
 
     private static void deleteOrder() {
+        listAll();
         int id = DataInput.getValidInteger("Introdueix l'ID de la compra a eliminar.");
         Order order = db.searchById(id);
         if (order != null) {
