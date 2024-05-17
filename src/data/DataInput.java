@@ -142,7 +142,12 @@ public interface DataInput {
     static void handleExit(String val) {
         if (val.equals("0")) {
             System.out.println("Tornant al menú...");
-            Main.run();
+            if (Main.admin.getId() != -1) {
+                Main.run();
+            } else {
+                System.out.println("El programa es tanca...");
+                System.exit(0);
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ public class RegisterDAO implements DAO<Register> {
 
     @Override
     public List<Register> read() {
-        String query = "SELECT * FROM Register";
+        String query = "SELECT * FROM Registers";
         try (PreparedStatement statement = con.prepareStatement(query)) {
             List<Register> registers = new ArrayList<>();
             ResultSet rs = statement.executeQuery();

@@ -14,13 +14,13 @@ public class LoggedMenu {
         System.out.println("""
                 ====== BENVINGUT A L'ENTORN D'USUARI ======
                 ___________________________________________
-                | * 1. GESTIÓ DE CLIENTS                  |
-                | * 2. GESTIÓ DE COMPRES                  |
-                | * 3. GESTIÓ DE SUPERMERCATS             |
-                | * 4. OPCIONS D'ADMINISTRADOR            |
-                | * 5. OPCIONS DE PRODUCTES               |
+                | * 1. MENU DE CLIENTS                    |
+                | * 2. MENU DE COMPRES                    |
+                | * 3. MENU DE SUPERMERCATS               |
+                | * 4. MENU DE PRODUCTES                  |
+                | * 5. MENU D'ADMINISTRADOR               |
                 | * 6. TANCAR SESSIÓ                      |
-                | * 0. SORTIR                             |
+                | * 0. TANCAR PROGRAMA                    |
                 |_________________________________________|""");
     }
 
@@ -36,10 +36,10 @@ public class LoggedMenu {
                 SupermarketManager.run();
                 break;
             case 4:
-                AdminManager.run();
+                ProductManager.run();
                 break;
             case 5:
-                ProductManager.run();
+                AdminManager.run();
                 break;
             case 6:
                 Admin.logout();

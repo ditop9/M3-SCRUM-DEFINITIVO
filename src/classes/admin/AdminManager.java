@@ -1,6 +1,8 @@
 package classes.admin;
 
 import app.Main;
+import classes.register.Register;
+import classes.register.RegisterDAO;
 import data.DataInput;
 
 import java.util.List;
@@ -25,6 +27,7 @@ public class AdminManager {
                 | 1. AFEGIR ADMINISTRADOR             |
                 | 2. ACTUALITZAR ADMINISTRADOR        |
                 | 3. ELIMINAR ADMINISTRADOR           |
+                | 4. MOSTRAR TOTS ELS REGISTRES       |
                 | 0. TORNAR AL MENÚ PRINCIPAL         |
                 |_____________________________________|""");
     }
@@ -39,6 +42,9 @@ public class AdminManager {
                 break;
             case 3:
                 deleteAdmin();
+                break;
+            case 4:
+                printRegisters();
                 break;
             case 0:
                 System.out.println("Tornant al menú principal");
@@ -61,12 +67,13 @@ public class AdminManager {
         Admin admin = Admin.createNewAdmin();
         if (db.create(admin)) {
             System.out.println("S'ha introduït el nou usuari Admin.");
+            Register.createNewRegister("Creació nou usuari admin: ID: " +
+                    admin.getId() + " Nom: " + admin.getName());
         } else System.out.println("Error: no s'ha pogut introduïr l'usuari Admin.");
     }
 
     private static void updateAdmin() {
         listAdmins();
-        System.out.println("0 => Sortir.");
         int id = DataInput.getValidInteger("Introdueix l'ID de l'admin a actualitzar.");
         Admin admin = db.searchById(id);
         System.out.println("Introdueix les dades noves de l'usuari Admin.");
@@ -74,19 +81,29 @@ public class AdminManager {
         if (admin != null) {
             if (db.update(updatedAdmin, id)) {
                 System.out.println("S'ha actualitzat l'usuari Admin correctament.");
+                Register.createNewRegister("Actualització usuari admin: ID: " +
+                        admin.getId() + " Nom: " + admin.getName());
             } else System.out.println("Error: no s'ha pogut actualitzar l'usuari Admin.");
         } else System.out.println("Error: no s'ha trobat l'usuari Admin.");
     }
 
     private static void deleteAdmin() {
         listAdmins();
-        System.out.println("0 => Sortir.");
         int id = DataInput.getValidInteger("Introdueix l'ID de l'admin a eliminar.");
         Admin admin = db.searchById(id);
         if (admin != null) {
             if (db.delete(admin.getId())) {
                 System.out.println("S'ha eliminat correctament l'usuari Admin " + admin.getName());
+                Register.createNewRegister("Eliminació usuari admin: ID: " +
+                        admin.getId() + " Nom: " + admin.getName());
             } else System.out.println("Error: no s'ha pogut completar l'acció.");
         } else System.out.println("Error: no s'ha trobat l'usuari Admin.");
+    }
+
+    private static void printRegisters() {
+        List<Register> registers = new RegisterDAO().read();
+        for (Register r : registers) {
+            System.out.println("- " + r);
+        }
     }
 }

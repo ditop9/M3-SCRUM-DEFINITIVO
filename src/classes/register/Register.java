@@ -31,4 +31,13 @@ public class Register {
         new RegisterDAO().create(new Register(Main.admin,
                 DataInput.getActualDate(), description));
     }
+
+    @Override
+    public String toString() {
+        return "Register{" +
+                "admin=" + admin +
+                ", date='" + date + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
